@@ -68,18 +68,18 @@
   </div>
 </header>
 
-<main class="max-w-md mx-auto px-4 pb-24 pt-6">
+<main class="max-w-md mx-auto px-4 pb-16 pt-6">
 
   <!-- INTRO -->
   <section id="screen-intro" class="screen">
     <div class="text-center animate-rise">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-rose-200 text-[10px] font-bold uppercase tracking-[.18em] text-rose-500 mb-4">Školská akcia</div>
-      <h1 class="font-display text-[2.6rem] leading-[1.05] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-500 to-purple-500">Nájdi svojho<br/>ženícha</h1>
-      <p class="mt-3 text-slate-600 text-sm leading-relaxed px-2">Odpovedz na 8 otázok a zisti, ktorý chalan z triedy sa k tebe hodí najviac. 💘</p>
+      <h1 class="font-display text-[2.6rem] leading-[1.05] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-500 to-purple-500">Nájdite svojho<br/>ženícha</h1>
+      <p class="mt-3 text-slate-600 text-sm leading-relaxed px-2">Odpovedzte na 8 otázok a zistite, ktorý chalan z triedy sa k vám hodí najviac. 💘</p>
     </div>
 
     <div class="mt-6 bg-white/85 backdrop-blur rounded-3xl p-5 shadow-xl shadow-rose-200/50 border border-white animate-rise" style="animation-delay:.1s">
-      <label for="teacher-name" class="block text-sm font-semibold text-slate-700 mb-2">Tvoje meno (alebo prezývka)</label>
+      <label for="teacher-name" class="block text-sm font-semibold text-slate-700 mb-2">Vaše meno (alebo prezývka)</label>
       <input id="teacher-name" type="text" maxlength="30" autocomplete="name" placeholder="napr. p. Nováková"
         class="w-full rounded-2xl border border-rose-200 bg-rose-50/60 px-4 py-3.5 text-base outline-none focus:ring-4 focus:ring-rose-200 focus:border-rose-400 transition placeholder:text-slate-400" />
       <button id="btn-start" class="mt-4 w-full rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold py-4 shadow-lg shadow-rose-300/60 active:scale-[.98] transition">Začať zoznamovanie 💘</button>
@@ -116,7 +116,7 @@
   <!-- RESULT -->
   <section id="screen-result" class="screen hidden">
     <div class="text-center mb-4">
-      <p class="text-[10px] font-bold uppercase tracking-[.22em] text-rose-400">Tvoj ideálny ženích</p>
+      <p class="text-[10px] font-bold uppercase tracking-[.22em] text-rose-400">Váš ideálny ženích</p>
     </div>
     <div class="bg-white/90 backdrop-blur rounded-[2rem] p-6 shadow-2xl shadow-rose-300/50 border border-white text-center animate-pop">
       <div id="result-ring" class="mx-auto w-44 h-44 rounded-full p-[6px] shadow-lg shadow-rose-200/70" style="background: conic-gradient(#e11d48 0deg, #fecdd3 0deg);">
@@ -144,6 +144,10 @@
   </section>
 </main>
 
+<footer class="max-w-md mx-auto px-4 pb-8 text-center">
+  <p class="text-[10px] text-slate-400">v2.1.0 · október 2026 · Svadba na prvý pohľad</p>
+</footer>
+
 <!-- QR modal -->
 <div id="modal-qr" class="fixed inset-0 z-50 hidden">
   <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" data-close-qr></div>
@@ -166,7 +170,7 @@
       <div class="text-center mb-5">
         <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-pink-500 mx-auto grid place-items-center text-2xl mb-3 shadow-lg shadow-rose-300/60">🔒</div>
         <h3 class="font-display text-xl font-bold text-slate-800">Administrácia</h3>
-        <p class="text-xs text-slate-500 mt-1">Zadaj PIN pre vstup</p>
+        <p class="text-xs text-slate-500 mt-1">Zadajte PIN pre vstup</p>
       </div>
       <input id="pin-input" type="password" inputmode="numeric" maxlength="10" placeholder="PIN" class="w-full text-center text-2xl tracking-[.5em] font-bold rounded-2xl border border-rose-200 bg-rose-50/60 px-4 py-3 outline-none focus:ring-4 focus:ring-rose-200 focus:border-rose-400 transition" />
       <p id="pin-error" class="text-xs text-rose-500 mt-2 h-4 text-center"></p>
@@ -191,7 +195,7 @@
       </header>
 
       <div id="offline-warning" class="hidden px-3 py-2 bg-amber-50 border-b border-amber-200 text-[11px] text-amber-800 leading-relaxed shrink-0">
-        ⚠️ <strong>Offline režim.</strong> Firebase nie je nakonfigurovaný — dáta sa ukladajú len v tomto prehliadači. Vlož svoj <code>firebaseConfig</code> na začiatok skriptu, aby sa dali zdieľať medzi zariadeniami.
+        ⚠️ <strong>Offline režim.</strong> Firebase nie je nakonfigurovaný — dáta sa ukladajú len v tomto prehliadači. Vložte svoj <code>firebaseConfig</code> na začiatok skriptu, aby sa dali zdieľať medzi zariadeniami.
       </div>
 
       <div class="px-3 py-2 border-b border-rose-100 grid grid-cols-2 gap-2 shrink-0">
@@ -201,6 +205,9 @@
         <button id="btn-import-codes" class="rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-[11px] font-bold py-2.5 active:scale-[.98] transition">📋 Prijať kódy</button>
         <button id="btn-export" class="rounded-xl bg-white border border-rose-200 text-slate-600 text-[11px] font-bold py-2.5 active:scale-[.98] transition">📥 Export JSON</button>
         <button id="btn-import" class="rounded-xl bg-white border border-rose-200 text-slate-600 text-[11px] font-bold py-2.5 active:scale-[.98] transition">📤 Import JSON</button>
+        <button id="btn-show-results" class="col-span-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold py-2.5 active:scale-[.98] transition flex items-center justify-center gap-1.5">
+          📊 Výsledky učiteliek <span id="results-badge" class="hidden bg-emerald-500 text-white text-[9px] px-1.5 py-0.5 rounded-full">0</span>
+        </button>
         <input type="file" id="import-file" accept=".json,application/json" class="hidden" />
       </div>
 
@@ -228,7 +235,7 @@
   <div class="relative h-full max-w-md mx-auto p-4 flex items-center justify-center">
     <div class="bg-white rounded-3xl p-5 shadow-2xl w-full animate-pop">
       <h3 class="font-display text-xl font-bold text-slate-800">Prijať kódy od chalanov</h3>
-      <p class="text-xs text-slate-500 mt-1 mb-3 leading-relaxed">Vlož kódy — každý na nový riadok alebo oddelené medzerou. Môžeš ich vložiť aj viac naraz.</p>
+      <p class="text-xs text-slate-500 mt-1 mb-3 leading-relaxed">Vložte kódy — každý na nový riadok alebo oddelené medzerou. Môžete ich vložiť aj viac naraz.</p>
       <textarea id="codes-input" rows="8" placeholder="napr. W3sibix...&#10;W3sibix..." class="w-full rounded-xl border border-rose-200 bg-rose-50/50 px-3 py-2.5 text-[11px] font-mono text-slate-700 outline-none resize-none break-all focus:ring-2 focus:ring-rose-300 focus:border-rose-400 transition"></textarea>
       <p id="codes-status" class="text-xs text-slate-500 mt-2 h-4"></p>
       <div class="mt-3 grid grid-cols-2 gap-2">
@@ -239,26 +246,40 @@
   </div>
 </div>
 
+<!-- Results modal -->
+<div id="modal-results" class="fixed inset-0 z-[55] hidden">
+  <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" data-close-results></div>
+  <div class="relative h-full max-w-md mx-auto p-3 flex">
+    <div class="bg-white rounded-3xl shadow-2xl flex flex-col w-full overflow-hidden">
+      <header class="px-4 py-3 border-b border-rose-100 flex items-center gap-2 shrink-0">
+        <div class="flex-1 min-w-0">
+          <h3 class="font-display text-lg font-bold text-slate-800 leading-tight">Výsledky učiteliek</h3>
+          <p class="text-[10px] text-slate-500"><span id="results-count">0</span> záznamov · <span id="results-status" class="font-semibold text-slate-400">…</span></p>
+        </div>
+        <button id="btn-results-export" class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center active:scale-95 transition" title="Export JSON">📥</button>
+        <button id="btn-results-clear" class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center active:scale-95 transition" title="Vymazať všetky">🗑</button>
+        <button id="btn-results-close" class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center active:scale-95 transition">✕</button>
+      </header>
+      <div id="results-list" class="flex-1 min-h-0 overflow-y-auto no-scrollbar p-3 space-y-2"></div>
+    </div>
+  </div>
+</div>
+
 <div id="toast" class="fixed left-1/2 -translate-x-1/2 bottom-6 z-[60] px-5 py-3 rounded-2xl bg-slate-900 text-white text-sm font-semibold shadow-2xl opacity-0 transition-all duration-300 translate-y-3"></div>
 
 <!-- =====================================================================
      🔥 FIREBASE KONFIGURÁCIA
      ---------------------------------------------------------------------
-     Skopíruj sem objekt firebaseConfig z Firebase konzoly:
+     Skopírujte sem objekt firebaseConfig z Firebase konzoly:
      Project settings → Your apps → </> (web app) → firebaseConfig
 
-     Ak necháš placeholdery ("PASTE_..."), aplikácia pobeží v offline
-     režime (localStorage) a v admin paneli sa zobrazí upozornenie.
+     Ak necháte placeholdery prázdne, aplikácia pobeží v offline režime
+     (localStorage) a v admin paneli sa zobrazí upozornenie.
      ===================================================================== -->
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-// (Analytics odstránené — nepoužíva sa)
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-database.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyAgxal6HJqMZ4q0X0gNHeKXWFsT-3D_cFM",
     authDomain: "svadba-na-prvy-pohlad.firebaseapp.com",
@@ -283,7 +304,7 @@ if (isConfigured) {
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app, firebaseConfig.databaseURL);
     firebase = { db, ref, set, onValue };
-    console.log('🔥 Firebase inicializovaný; overuje sa prístup k databáze.');
+    console.log('🔥 Firebase inicializovaný.');
   } catch (e) {
     firebaseInitError = e;
     console.error('Firebase inicializácia zlyhala:', e);
@@ -305,11 +326,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready', {
    1) KONFIGURÁCIA A DÁTA
    ===================================================================== */
 
-const STORAGE_KEY     = 'svadba_boys_v3';
-const PENDING_KEY     = 'svadba_pending_boys_v1';
+const STORAGE_KEY         = 'svadba_boys_v3';
+const STORAGE_RESULTS_KEY = 'svadba_results_v1';
+const PENDING_KEY         = 'svadba_pending_boys_v1';
 // ⚠️ PIN je vidno v zdrojáku — nie je to ochrana. Skutočná ochrana = pravidlá Firebase Realtime Database.
-const ADMIN_PIN       = '1548';
-const CLOUD_PATH      = 'boys';           // cesta v Realtime Database
+const ADMIN_PIN           = '1548';
+const CLOUD_PATH          = 'boys';       // cesta pre zoznam chalanov
+const CLOUD_RESULTS_PATH  = 'results';    // cesta pre výsledky učiteliek
 
 const QUESTIONS = [
   { q: 'Čo máte radšej?', a: 'Hory', b: 'More' },
@@ -420,14 +443,17 @@ function showScreen(id) {
    3) STAV A SYNCHRONIZÁCIA S FIREBASE
    ===================================================================== */
 
-let boys = [];                            // zdroj pravdy pre celú app
+let boys = [];
+let results = [];
 let teacherState = { name: '', answers: [], current: 0 };
 let locked = false;
 let cloudReady = false;
 let cloudOnline = false;
-let lastCloudJson = '';                   // na detekciu zmien
+let lastCloudJson = '';
+let lastResultsJson = '';
+let resultsReady = false;
 
-/* ---- Lokálna cache (funguje vždy, aj offline) ---- */
+/* ---- Lokálna cache ---- */
 function loadLocalCache() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -440,6 +466,19 @@ function loadLocalCache() {
 function saveLocalCache(arr) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch (e) {}
 }
+function loadResultsLocalCache() {
+  try {
+    const raw = localStorage.getItem(STORAGE_RESULTS_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.map(normalizeResult);
+  } catch (e) { return []; }
+}
+function saveResultsLocalCache() {
+  try { localStorage.setItem(STORAGE_RESULTS_KEY, JSON.stringify(results)); } catch (e) {}
+}
+
 function normalizeBoy(b) {
   return {
     id: String(b.id || '').replace(/[^\w-]/g, '').slice(0, 40) || genId(),
@@ -454,20 +493,39 @@ function normalizeBoy(b) {
   };
 }
 
-/* ---- Inicializácia: najprv z cache, potom z cloudu ---- */
-boys = loadLocalCache();
+function normalizeResult(r) {
+  const safeNum = (n, max) => Math.max(0, Math.min(max, Number(n) || 0));
+  return {
+    id: String(r.id || '').slice(0, 60) || ('r_' + genId()),
+    teacherName: String(r.teacherName || '?').slice(0, 40),
+    timestamp: Number(r.timestamp) || Date.now(),
+    answers: Array(QUESTIONS.length).fill('A').map((_, i) => {
+      const v = Array.isArray(r.answers) ? r.answers[i] : 'A';
+      return v === 'B' ? 'B' : 'A';
+    }),
+    winner: {
+      name: String(r?.winner?.name || '?').slice(0, 30),
+      nickname: String(r?.winner?.nickname || '').slice(0, 20),
+      percent: safeNum(r?.winner?.percent, 100),
+      hits: safeNum(r?.winner?.hits, QUESTIONS.length),
+    },
+    top3: Array.isArray(r.top3) ? r.top3.slice(0, 3).map(t => ({
+      name: String(t?.name || '?').slice(0, 30),
+      percent: safeNum(t?.percent, 100),
+    })) : [],
+  };
+}
 
-/* ---- Zápis: vždy do cache + do cloudu (ak je pripojený) ---- */
+boys = loadLocalCache();
+results = loadResultsLocalCache();
+
+/* ---- Zápis chalanov ---- */
 let pendingWrite = null;
 let pendingWriteResolvers = [];
 function saveBoys() {
-  // Lokálna cache sa uloží okamžite, aj keď internet/Firebase nefunguje.
   saveLocalCache(boys);
-
   if (!window.__firebase) return Promise.resolve('local');
 
-  // Debounce zápisov pri úprave viacerých polí naraz. Všetky čakajúce volania
-  // dostanú výsledok toho istého skutočného zápisu, nie predčasné potvrdenie.
   if (pendingWrite) clearTimeout(pendingWrite);
   const result = new Promise(resolve => pendingWriteResolvers.push(resolve));
   pendingWrite = setTimeout(async () => {
@@ -477,30 +535,39 @@ function saveBoys() {
     try {
       const { db, ref, set } = window.__firebase;
       const sanitized = boys.map(b => ({
-        id: b.id,
-        name: b.name,
-        nickname: b.nickname,
-        desc: b.desc,
-        photo: b.photo,
-        answers: b.answers,
+        id: b.id, name: b.name, nickname: b.nickname,
+        desc: b.desc, photo: b.photo, answers: b.answers,
       }));
       await set(ref(db, CLOUD_PATH), sanitized);
       lastCloudJson = JSON.stringify(sanitized.map(normalizeBoy));
       cloudOnline = true;
       updateCloudStatus('online');
-      resolvers.forEach(resolve => resolve('cloud'));
+      resolvers.forEach(r => r('cloud'));
     } catch (e) {
       console.error('Cloud write failed:', e);
       cloudOnline = false;
       updateCloudStatus('error');
       toast('Nepodarilo sa uložiť do cloudu. Dáta zostali v tomto prehliadači. 😕');
-      resolvers.forEach(resolve => resolve('error'));
+      resolvers.forEach(r => r('error'));
     }
   }, 250);
   return result;
 }
 
-/* ---- Načúvanie na zmeny z cloudu (real-time) ---- */
+/* ---- Zápis výsledku (append) ---- */
+async function saveResultToCloud(result) {
+  if (!window.__firebase) return false;
+  try {
+    const { db, ref, set } = window.__firebase;
+    await set(ref(db, CLOUD_RESULTS_PATH + '/' + result.id), result);
+    return true;
+  } catch (e) {
+    console.error('Result save failed:', e);
+    return false;
+  }
+}
+
+/* ---- Načúvanie chalanov ---- */
 function listenToCloud() {
   if (!window.__firebase) return;
   const { db, ref, onValue } = window.__firebase;
@@ -510,7 +577,6 @@ function listenToCloud() {
     cloudReady = true;
     cloudOnline = true;
 
-    // Prvé pripojenie k prázdnemu cloudu: lokálne dáta nemažeme, ale nahráme ich
     if (data == null && boys.length > 0 && !lastCloudJson) {
       lastCloudJson = '[]';
       saveBoys();
@@ -518,12 +584,7 @@ function listenToCloud() {
       return;
     }
 
-    const remote = (Array.isArray(data)
-      ? data.filter(Boolean)
-      : data
-        ? Object.values(data).filter(Boolean)
-        : []).map(normalizeBoy);
-
+    const remote = (Array.isArray(data) ? data.filter(Boolean) : data ? Object.values(data).filter(Boolean) : []).map(normalizeBoy);
     const remoteJson = JSON.stringify(remote);
     if (remoteJson !== lastCloudJson) {
       lastCloudJson = remoteJson;
@@ -539,21 +600,58 @@ function listenToCloud() {
   });
 }
 
+/* ---- Načúvanie výsledkov ---- */
+function listenToResults() {
+  if (!window.__firebase) {
+    resultsReady = true;
+    updateResultsStatus();
+    return;
+  }
+  const { db, ref, onValue } = window.__firebase;
+
+  onValue(ref(db, CLOUD_RESULTS_PATH), (snapshot) => {
+    const data = snapshot.val();
+    resultsReady = true;
+
+    // Prvé pripojenie k prázdnemu cloudu — pošli lokálne výsledky
+    if (data == null) {
+      if (results.length > 0) {
+        results.forEach(r => saveResultToCloud(r));
+      }
+      updateResultsStatus();
+      return;
+    }
+
+    const remote = (Array.isArray(data) ? data.filter(Boolean) : Object.values(data).filter(Boolean))
+      .map(normalizeResult)
+      .sort((a, b) => b.timestamp - a.timestamp);
+
+    const remoteJson = JSON.stringify(remote);
+    if (remoteJson !== lastResultsJson) {
+      lastResultsJson = remoteJson;
+      results = remote;
+      saveResultsLocalCache();
+      updateResultsStatus();
+      if (!$('modal-results').classList.contains('hidden')) {
+        renderResults();
+      }
+    }
+  }, (error) => {
+    console.error('Results listen error:', error);
+  });
+}
+
 function refreshUIFromBoys() {
-  // Ak je admin otvorený, prekresli zoznam
   const typing = document.activeElement && document.activeElement.matches && document.activeElement.matches('#admin-list input');
   if (!$('modal-admin').classList.contains('hidden') && !typing) {
     renderAdmin();
   }
-  // Aktualizuj počet
   $('admin-count').textContent = boys.length;
-  // Ak by bol otvorený výsledok, necháme tak (učiteľka už vidí svoj výsledok)
 }
 
 function updateCloudStatus(state) {
   const el = $('cloud-status');
   if (!el) return;
-
   if (!window.__firebaseConfigured) {
     el.textContent = 'offline (localStorage)';
     el.className = 'font-semibold text-amber-600';
@@ -579,20 +677,47 @@ function updateCloudStatus(state) {
   el.className = 'font-semibold text-emerald-600';
 }
 
-/* Reakcia na pripravenosť Firebase (event z module scriptu) */
+function updateResultsStatus() {
+  const el = $('results-status');
+  if (!el) return;
+  if (!window.__firebaseConfigured) {
+    el.textContent = 'offline';
+    el.className = 'font-semibold text-amber-600';
+    return;
+  }
+  if (!window.__firebase) {
+    el.textContent = 'offline';
+    el.className = 'font-semibold text-rose-600';
+    return;
+  }
+  if (!resultsReady) {
+    el.textContent = 'pripájam…';
+    el.className = 'font-semibold text-slate-400';
+    return;
+  }
+  el.textContent = '✓ online';
+  el.className = 'font-semibold text-emerald-600';
+
+  // Badge s počtom
+  const badge = $('results-badge');
+  if (badge) {
+    if (results.length > 0) {
+      badge.textContent = results.length;
+      badge.classList.remove('hidden');
+    } else {
+      badge.classList.add('hidden');
+    }
+  }
+}
+
 window.addEventListener('firebase-ready', (e) => {
   const { ok, configured } = e.detail;
   if (ok) {
     listenToCloud();
-    // Ak máme lokálne dáta a cloud je prázdny, inicializujeme cloud
-    setTimeout(() => {
-      if (cloudReady && boys.length > 0 && !lastCloudJson.length) {
-        // cloud je prázdny, ale máme lokálne dáta — pošli ich
-        saveBoys();
-      }
-    }, 1500);
+    listenToResults();
   } else {
     updateCloudStatus();
+    updateResultsStatus();
     if (!configured) {
       $('offline-warning').classList.remove('hidden');
     }
@@ -635,7 +760,7 @@ function startQuiz() {
     return;
   }
   if (!boys.length) {
-    toast(window.__firebaseConfigured ? 'Ešte sa načítavajú chalani… skús o chvíľu 😊' : 'Zatiaľ nemáme žiadnych chalanov 😅');
+    toast(window.__firebaseConfigured ? 'Ešte sa načítavajú chalani… skúste o chvíľu 😊' : 'Zatiaľ nemáme žiadnych chalanov 😅');
     return;
   }
   teacherState = { name, answers: [], current: 0 };
@@ -730,6 +855,35 @@ function buildReason(res) {
   return intro + ' ' + lines.join(' ');
 }
 
+/* --- Záznam výsledku do cloudu --- */
+async function recordResult(winner, ranked) {
+  const result = {
+    id: 'r_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8),
+    teacherName: teacherState.name,
+    timestamp: Date.now(),
+    answers: [...teacherState.answers],
+    winner: {
+      name: winner.boy.name,
+      nickname: winner.boy.nickname,
+      percent: winner.percent,
+      hits: winner.hits,
+    },
+    top3: ranked.slice(0, 3).map(r => ({
+      name: r.boy.name,
+      percent: r.percent,
+    })),
+  };
+
+  results.unshift(result);
+  saveResultsLocalCache();
+  updateResultsStatus();
+
+  if (window.__firebase) {
+    const ok = await saveResultToCloud(result);
+    if (!ok) console.warn('Výsledok nebol uložený do cloudu, zostal v lokálnej cache.');
+  }
+}
+
 function showResult() {
   if (!boys.length) { toast('Zoznam chalanov je prázdny 😅'); return; }
   const ranked = computeRanking(teacherState.answers);
@@ -762,9 +916,13 @@ function showResult() {
   $('result-runners').querySelectorAll('img[data-fallback]').forEach(img => {
     img.onerror = () => { img.onerror = null; img.src = img.dataset.fallback; };
   });
+
   showScreen('screen-result');
   animateRing(winner.percent);
   celebrate();
+
+  // Fire & forget — uloženie výsledku (neblokuje UI)
+  recordResult(winner, ranked);
 }
 
 function animateRing(targetPercent) {
@@ -849,6 +1007,7 @@ function tryPin() {
     renderAdmin();
     updateDeviceBadge();
     updateCloudStatus();
+    updateResultsStatus();
     $('modal-admin').classList.remove('hidden');
   } else {
     $('pin-error').textContent = 'Nesprávny PIN ❌';
@@ -904,7 +1063,7 @@ function renderBoyCard(b) {
         '<input data-id="' + b.id + '" data-f="desc" value="' + esc(b.desc) + '" placeholder="Popis" class="' + inputCls + '" />' +
         '<input data-id="' + b.id + '" data-f="photo" value="' + esc(b.photo) + '" placeholder="URL fotky" class="' + inputCls + '" />' +
         '<div class="pt-2 border-t border-rose-100">' +
-          '<p class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">Odpovede — klikni na A/B</p>' +
+          '<p class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">Odpovede — kliknite na A/B</p>' +
           '<div class="space-y-0.5">' + answerRows + '</div>' +
         '</div>' +
         '<div class="flex gap-2 pt-2">' +
@@ -925,7 +1084,7 @@ function renderAdmin() {
       '<div class="text-center py-10 px-4">' +
         '<div class="text-4xl mb-3">📭</div>' +
         '<p class="text-sm font-semibold text-slate-600">Zatiaľ žiadni chalani</p>' +
-        '<p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">Klikni na <strong>📋 Prijať kódy</strong> a vlož kódy od chalanov, alebo <strong>📲 Z tohto zariadenia</strong>, alebo pridaj demo cez 🎭.</p>' +
+        '<p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">Kliknite na <strong>📋 Prijať kódy</strong> a vložte kódy od chalanov, alebo <strong>📲 Z tohto zariadenia</strong>, alebo pridajte demo cez 🎭.</p>' +
       '</div>';
     return;
   }
@@ -1073,7 +1232,7 @@ $('btn-admin-save').addEventListener('click', async () => {
   }
 });
 
-/* --- Export/Import JSON --- */
+/* --- Export/Import JSON chalanov --- */
 $('btn-export').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify(boys, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
@@ -1174,7 +1333,116 @@ $('btn-import-device').addEventListener('click', () => {
 });
 
 /* =====================================================================
-   8) INIT
+   8) VÝSLEDKY UČITELIEK (admin)
+   ===================================================================== */
+
+$('btn-show-results').addEventListener('click', () => {
+  renderResults();
+  updateResultsStatus();
+  $('modal-results').classList.remove('hidden');
+});
+
+$('btn-results-close').addEventListener('click', () => $('modal-results').classList.add('hidden'));
+document.querySelectorAll('[data-close-results]').forEach(el => el.addEventListener('click', () => $('modal-results').classList.add('hidden')));
+
+function renderResults() {
+  $('results-count').textContent = results.length;
+  const list = $('results-list');
+
+  if (!results.length) {
+    list.innerHTML =
+      '<div class="text-center py-12 px-4">' +
+        '<div class="text-4xl mb-3">📊</div>' +
+        '<p class="text-sm font-semibold text-slate-600">Zatiaľ žiadne výsledky</p>' +
+        '<p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">Keď učiteľka dokončí dotazník, jej meno, odpovede a zhoda sa tu zobrazia.</p>' +
+      '</div>';
+    return;
+  }
+
+  list.innerHTML = results.map(r => {
+    const d = new Date(r.timestamp);
+    const dateStr = d.toLocaleString('sk-SK', {
+      day: 'numeric', month: 'numeric', year: 'numeric',
+      hour: '2-digit', minute: '2-digit',
+    });
+    return (
+      '<div class="rounded-xl border border-rose-100 bg-white p-3 shadow-sm">' +
+        '<div class="flex items-start justify-between gap-2 mb-1.5">' +
+          '<div class="flex-1 min-w-0">' +
+            '<p class="text-sm font-bold text-slate-800 truncate">' + esc(r.teacherName) + '</p>' +
+            '<p class="text-[10px] text-slate-400">' + esc(dateStr) + '</p>' +
+          '</div>' +
+          '<span class="shrink-0 text-lg font-extrabold text-rose-500">' + r.winner.percent + '%</span>' +
+        '</div>' +
+        '<p class="text-xs text-slate-600 mb-2">' +
+          '🏆 <strong>' + esc(r.winner.name) + '</strong>' +
+          (r.winner.nickname ? ' „' + esc(r.winner.nickname) + '“' : '') +
+          ' <span class="text-slate-400">(' + r.winner.hits + '/' + QUESTIONS.length + ')</span>' +
+        '</p>' +
+        '<div class="flex gap-1 flex-wrap">' +
+          r.answers.map((a, i) =>
+            '<span class="text-[9px] font-bold w-5 h-5 rounded ' +
+              (a === 'A' ? 'bg-rose-100 text-rose-600' : 'bg-purple-100 text-purple-600') +
+              ' grid place-items-center" title="' + esc(QUESTIONS[i].q) + '">' + a + '</span>'
+          ).join('') +
+        '</div>' +
+      '</div>'
+    );
+  }).join('');
+}
+
+$('btn-results-export').addEventListener('click', () => {
+  if (!results.length) { toast('Žiadne výsledky na export'); return; }
+
+  // Human-readable export s popismi otázok a odpovedí
+  const exportData = results.map(r => ({
+    teacherName: r.teacherName,
+    timestamp: new Date(r.timestamp).toISOString(),
+    answers: r.answers.map((a, i) => ({
+      question: QUESTIONS[i].q,
+      answer: a,
+      text: a === 'A' ? QUESTIONS[i].a : QUESTIONS[i].b,
+    })),
+    winner: r.winner,
+    top3: r.top3,
+  }));
+
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'svadba-vysledky-' + new Date().toISOString().slice(0, 10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Export hotový 📥');
+});
+
+$('btn-results-clear').addEventListener('click', async () => {
+  if (!results.length) { toast('Žiadne výsledky na vymazanie'); return; }
+  if (!confirm('Naozaj vymazať všetky výsledky učiteliek?\n\nTáto akcia sa nedá vrátiť.')) return;
+
+  results = [];
+  saveResultsLocalCache();
+  updateResultsStatus();
+
+  if (window.__firebase) {
+    try {
+      const { db, ref, set } = window.__firebase;
+      await set(ref(db, CLOUD_RESULTS_PATH), null);
+      toast('Výsledky vymazané ✅');
+    } catch (e) {
+      console.error('Cloud clear failed:', e);
+      toast('Lokálne vymazané, ale cloud sa nepodarilo vyčistiť 😕');
+    }
+  } else {
+    toast('Lokálne vymazané ✅');
+  }
+
+  renderResults();
+});
+
+/* =====================================================================
+   9) INIT
    ===================================================================== */
 
 window.addEventListener('load', () => {
@@ -1182,6 +1450,7 @@ window.addEventListener('load', () => {
   updateDeviceBadge();
   $('admin-count').textContent = boys.length;
   updateCloudStatus();
+  updateResultsStatus();
 });
 
 window.addEventListener('hashchange', renderQR);
