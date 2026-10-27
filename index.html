@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#fff1f2" />
+<title>Svadba na prvý pohľad 💍</title>
+
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    fontFamily: {
+      display: ['"Playfair Display"', 'Georgia', 'serif'],
+      sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+    },
+    keyframes: {
+      pop: { '0%': { transform: 'scale(.88)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+      rise: { '0%': { transform: 'translateY(22px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+      beat: { '0%,100%': { transform: 'scale(1)' }, '15%': { transform: 'scale(1.06)' }, '30%': { transform: 'scale(1)' }, '45%': { transform: 'scale(1.04)' } },
+    },
+    animation: {
+      pop: 'pop .38s cubic-bezier(.34,1.56,.64,1) both',
+      rise: 'rise .5s ease-out both',
+      beat: 'beat 1.6s ease-in-out infinite',
+    },
+  } } };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { -webkit-tap-highlight-color: transparent; }
+  @keyframes floaty {
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-16px) rotate(3deg); }
+  }
+  #qrcode canvas + img { display: none; }
+  #qrcode canvas { border-radius: 16px; }
+  .no-scrollbar::-webkit-scrollbar { width: 6px; }
+  .no-scrollbar::-webkit-scrollbar-thumb { background: #fecdd3; border-radius: 99px; }
+  .no-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  input, button, select, textarea { font-family: inherit; }
+</style>
+</head>
+
+<body class="font-sans text-slate-800 antialiased bg-rose-50 min-h-screen relative overflow-x-hidden selection:bg-rose-200">
+
+<div class="pointer-events-none fixed inset-0 -z-20 overflow-hidden">
+  <div class="absolute -top-24 -left-24 w-72 h-72 bg-rose-200/70 rounded-full blur-3xl"></div>
+  <div class="absolute top-1/3 -right-28 w-80 h-80 bg-purple-200/60 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-28 left-1/4 w-72 h-72 bg-pink-200/70 rounded-full blur-3xl"></div>
+</div>
+<div id="hearts" class="pointer-events-none fixed inset-0 -z-10"></div>
+
+<header class="sticky top-0 z-30 backdrop-blur-md bg-white/60 border-b border-white/70">
+  <div class="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">💍</span>
+      <span class="font-display font-bold text-[15px] tracking-tight text-rose-700">Svadba na prvý pohľad</span>
+    </div>
+    <button id="btn-admin" class="text-[11px] font-bold px-3 py-2 rounded-full bg-white/90 text-rose-600 border border-rose-200 shadow-sm active:scale-95 transition">⚙️ Admin</button>
+  </div>
+</header>
+
+<main class="max-w-md mx-auto px-4 pb-24 pt-6">
+
+  <!-- INTRO -->
+  <section id="screen-intro" class="screen">
+    <div class="text-center animate-rise">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-rose-200 text-[10px] font-bold uppercase tracking-[.18em] text-rose-500 mb-4">Školská akcia</div>
+      <h1 class="font-display text-[2.6rem] leading-[1.05] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-500 to-purple-500">Nájdi svojho<br/>ženícha</h1>
+      <p class="mt-3 text-slate-600 text-sm leading-relaxed px-2">Odpovedz na 8 otázok a zisti, ktorý chalan z triedy sa k tebe hodí najviac. 💘</p>
+    </div>
+
+    <div class="mt-6 bg-white/85 backdrop-blur rounded-3xl p-5 shadow-xl shadow-rose-200/50 border border-white animate-rise" style="animation-delay:.1s">
+      <label for="teacher-name" class="block text-sm font-semibold text-slate-700 mb-2">Tvoje meno (alebo prezývka)</label>
+      <input id="teacher-name" type="text" maxlength="30" autocomplete="name" placeholder="napr. p. Nováková"
+        class="w-full rounded-2xl border border-rose-200 bg-rose-50/60 px-4 py-3.5 text-base outline-none focus:ring-4 focus:ring-rose-200 focus:border-rose-400 transition placeholder:text-slate-400" />
+      <button id="btn-start" class="mt-4 w-full rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold py-4 shadow-lg shadow-rose-300/60 active:scale-[.98] transition">Začať zoznamovanie 💘</button>
+      <p class="mt-3 text-center text-[11px] text-slate-400">Zaberie to menej ako minútu.</p>
+    </div>
+
+    <button id="btn-qr" class="mt-4 w-full rounded-2xl bg-white/80 backdrop-blur border border-rose-200 py-3.5 text-sm font-semibold text-rose-600 shadow-sm active:scale-[.98] transition flex items-center justify-center gap-2 animate-rise" style="animation-delay:.2s">
+      <span class="text-base">📱</span> QR kód pre akciu
+    </button>
+    <p class="mt-6 text-center text-[10px] text-slate-400 leading-relaxed">Vyrobené s ❤️ pre našu triedu</p>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="screen-quiz" class="screen hidden">
+    <div class="flex items-center gap-3 mb-5">
+      <button id="btn-back" class="shrink-0 w-10 h-10 rounded-full bg-white/90 border border-rose-200 text-rose-500 text-lg flex items-center justify-center shadow-sm active:scale-95 transition">←</button>
+      <div class="flex-1">
+        <div class="flex justify-between items-center text-[11px] font-bold text-slate-500 mb-1.5">
+          <span id="quiz-step-label">Otázka 1 z 8</span>
+          <span id="quiz-name-label" class="text-rose-500 truncate max-w-[45%]"></span>
+        </div>
+        <div class="h-2 rounded-full bg-rose-100 overflow-hidden">
+          <div id="quiz-progress" class="h-full rounded-full bg-gradient-to-r from-rose-400 to-pink-500 transition-all duration-300 ease-out" style="width: 12.5%"></div>
+        </div>
+      </div>
+    </div>
+    <div id="question-card" class="bg-white/90 backdrop-blur rounded-3xl p-6 shadow-xl shadow-rose-200/50 border border-white">
+      <p class="text-[10px] font-bold uppercase tracking-[.18em] text-rose-400 mb-2">Otázka</p>
+      <h2 id="question-text" class="font-display text-2xl font-bold text-slate-800 leading-snug mb-5"></h2>
+      <div id="question-options" class="space-y-3"></div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="screen-result" class="screen hidden">
+    <div class="text-center mb-4">
+      <p class="text-[10px] font-bold uppercase tracking-[.22em] text-rose-400">Tvoj ideálny ženích</p>
+    </div>
+    <div class="bg-white/90 backdrop-blur rounded-[2rem] p-6 shadow-2xl shadow-rose-300/50 border border-white text-center animate-pop">
+      <div id="result-ring" class="mx-auto w-44 h-44 rounded-full p-[6px] shadow-lg shadow-rose-200/70" style="background: conic-gradient(#e11d48 0deg, #fecdd3 0deg);">
+        <div class="w-full h-full rounded-full bg-white p-[5px]">
+          <img id="result-photo" alt="Ženích" class="w-full h-full rounded-full object-cover animate-beat" />
+        </div>
+      </div>
+      <div class="mt-4">
+        <div id="result-percent" class="font-display text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-500">0%</div>
+        <p class="text-[10px] font-bold uppercase tracking-[.22em] text-rose-400 mt-0.5">zhoda</p>
+      </div>
+      <h2 id="result-name" class="font-display text-2xl font-bold mt-3 text-slate-800"></h2>
+      <p id="result-desc" class="text-sm text-slate-500 mt-1.5 leading-relaxed"></p>
+      <div class="mt-5 rounded-2xl bg-rose-50 border border-rose-100 p-4 text-left">
+        <p class="text-[10px] font-bold uppercase tracking-[.18em] text-rose-400 mb-1.5">Prečo práve on?</p>
+        <p id="result-reason" class="text-sm text-slate-600 leading-relaxed"></p>
+        <p id="result-hits" class="mt-2.5 text-[11px] text-slate-400"></p>
+      </div>
+      <div class="mt-5">
+        <p class="text-[10px] font-bold uppercase tracking-[.18em] text-slate-400 mb-2 text-left">Ďalší v poradí</p>
+        <div id="result-runners" class="space-y-2"></div>
+      </div>
+      <button id="btn-restart" class="mt-6 w-full rounded-2xl bg-slate-900 text-white font-bold py-3.5 active:scale-[.98] transition">Skúsiť znova 🔄</button>
+    </div>
+  </section>
+</main>
+
+<!-- QR modal -->
+<div id="modal-qr" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" data-close-qr></div>
+  <div class="relative h-full max-w-md mx-auto p-4 flex items-center justify-center">
+    <div class="bg-white rounded-3xl p-6 shadow-2xl text-center w-full animate-pop">
+      <h3 class="font-display text-2xl font-bold text-slate-800">QR kód pre akciu</h3>
+      <p class="text-xs text-slate-500 mt-1">Nech si ho učiteľky naskenujú mobilom.</p>
+      <div class="mt-5 flex justify-center"><div id="qrcode" class="p-3 bg-white rounded-2xl border border-rose-100 shadow-sm"></div></div>
+      <p id="qr-url" class="mt-4 text-[11px] text-slate-400 break-all leading-relaxed"></p>
+      <button data-close-qr class="mt-5 w-full rounded-2xl bg-slate-900 text-white font-bold py-3.5 active:scale-[.98] transition">Zavrieť</button>
+    </div>
+  </div>
+</div>
+
+<!-- PIN modal -->
+<div id="modal-pin" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" data-close-pin></div>
+  <div class="relative h-full max-w-sm mx-auto p-4 flex items-center justify-center">
+    <div class="bg-white rounded-3xl p-6 shadow-2xl w-full animate-pop">
+      <div class="text-center mb-5">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-pink-500 mx-auto grid place-items-center text-2xl mb-3 shadow-lg shadow-rose-300/60">🔒</div>
+        <h3 class="font-display text-xl font-bold text-slate-800">Administrácia</h3>
+        <p class="text-xs text-slate-500 mt-1">Zadaj PIN pre vstup</p>
+      </div>
+      <input id="pin-input" type="password" inputmode="numeric" maxlength="10" placeholder="PIN" class="w-full text-center text-2xl tracking-[.5em] font-bold rounded-2xl border border-rose-200 bg-rose-50/60 px-4 py-3 outline-none focus:ring-4 focus:ring-rose-200 focus:border-rose-400 transition" />
+      <p id="pin-error" class="text-xs text-rose-500 mt-2 h-4 text-center"></p>
+      <button id="pin-submit" class="mt-2 w-full rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold py-3.5 shadow-lg shadow-rose-300/60 active:scale-[.98] transition">Vstúpiť</button>
+      <button data-close-pin class="mt-2 w-full rounded-2xl bg-white border border-rose-200 text-slate-500 font-semibold py-2.5 active:scale-[.98] transition text-sm">Zrušiť</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin modal -->
+<div id="modal-admin" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" data-close-admin></div>
+  <div class="relative h-full max-w-md mx-auto p-3 flex">
+    <div class="bg-white rounded-3xl shadow-2xl flex flex-col w-full overflow-hidden">
+
+      <header class="px-4 py-3 border-b border-rose-100 flex items-center gap-2 shrink-0">
+        <div class="flex-1 min-w-0">
+          <h3 class="font-display text-lg font-bold text-slate-800 leading-tight">Administrácia</h3>
+          <p class="text-[10px] text-slate-500"><span id="admin-count">0</span> chalanov · <span id="cloud-status" class="font-semibold text-slate-400">…</span></p>
+        </div>
+        <button id="btn-admin-close" class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center active:scale-95 transition">✕</button>
+      </header>
+
+      <div id="offline-warning" class="hidden px-3 py-2 bg-amber-50 border-b border-amber-200 text-[11px] text-amber-800 leading-relaxed shrink-0">
+        ⚠️ <strong>Offline režim.</strong> Firebase nie je nakonfigurovaný — dáta sa ukladajú len v tomto prehliadači. Vlož svoj <code>firebaseConfig</code> na začiatok skriptu, aby sa dali zdieľať medzi zariadeniami.
+      </div>
+
+      <div class="px-3 py-2 border-b border-rose-100 grid grid-cols-2 gap-2 shrink-0">
+        <button id="btn-import-device" class="rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-[11px] font-bold py-2.5 active:scale-[.98] transition flex items-center justify-center gap-1.5">
+          📲 Z tohto zariadenia <span id="device-badge" class="hidden bg-rose-500 text-white text-[9px] px-1.5 py-0.5 rounded-full">0</span>
+        </button>
+        <button id="btn-import-codes" class="rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-[11px] font-bold py-2.5 active:scale-[.98] transition">📋 Prijať kódy</button>
+        <button id="btn-export" class="rounded-xl bg-white border border-rose-200 text-slate-600 text-[11px] font-bold py-2.5 active:scale-[.98] transition">📥 Export JSON</button>
+        <button id="btn-import" class="rounded-xl bg-white border border-rose-200 text-slate-600 text-[11px] font-bold py-2.5 active:scale-[.98] transition">📤 Import JSON</button>
+        <input type="file" id="import-file" accept=".json,application/json" class="hidden" />
+      </div>
+
+      <div class="px-3 py-2 border-b border-rose-100 shrink-0">
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none">🔍</span>
+          <input id="admin-search" type="search" placeholder="Hľadať chalana..." class="w-full rounded-xl border border-rose-100 bg-rose-50/50 pl-9 pr-3 py-2 text-sm outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-400 transition" />
+        </div>
+      </div>
+
+      <div id="admin-list" class="flex-1 min-h-0 overflow-y-auto no-scrollbar p-3 space-y-2.5"></div>
+
+      <footer class="p-3 border-t border-rose-100 flex gap-2 shrink-0 bg-rose-50/50">
+        <button id="btn-admin-add" class="flex-1 rounded-xl bg-white border border-rose-200 text-rose-600 text-xs font-bold py-3 active:scale-[.98] transition">+ Pridať</button>
+        <button id="btn-admin-demo" class="rounded-xl bg-white border border-rose-200 text-slate-500 text-xs font-bold px-3 py-3 active:scale-[.98] transition" title="Demo">🎭</button>
+        <button id="btn-admin-save" class="flex-1 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-bold py-3 shadow-md shadow-rose-300/60 active:scale-[.98] transition">💾 Uložiť</button>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<!-- Codes modal -->
+<div id="modal-codes" class="fixed inset-0 z-[55] hidden">
+  <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" data-close-codes></div>
+  <div class="relative h-full max-w-md mx-auto p-4 flex items-center justify-center">
+    <div class="bg-white rounded-3xl p-5 shadow-2xl w-full animate-pop">
+      <h3 class="font-display text-xl font-bold text-slate-800">Prijať kódy od chalanov</h3>
+      <p class="text-xs text-slate-500 mt-1 mb-3 leading-relaxed">Vlož kódy — každý na nový riadok alebo oddelené medzerou. Môžeš ich vložiť aj viac naraz.</p>
+      <textarea id="codes-input" rows="8" placeholder="napr. W3sibix...&#10;W3sibix..." class="w-full rounded-xl border border-rose-200 bg-rose-50/50 px-3 py-2.5 text-[11px] font-mono text-slate-700 outline-none resize-none break-all focus:ring-2 focus:ring-rose-300 focus:border-rose-400 transition"></textarea>
+      <p id="codes-status" class="text-xs text-slate-500 mt-2 h-4"></p>
+      <div class="mt-3 grid grid-cols-2 gap-2">
+        <button data-close-codes class="rounded-xl bg-white border border-rose-200 text-slate-500 font-semibold text-sm py-3 active:scale-[.98] transition">Zrušiť</button>
+        <button id="codes-submit" class="rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-sm py-3 shadow-md shadow-rose-300/60 active:scale-[.98] transition">Pridať</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="fixed left-1/2 -translate-x-1/2 bottom-6 z-[60] px-5 py-3 rounded-2xl bg-slate-900 text-white text-sm font-semibold shadow-2xl opacity-0 transition-all duration-300 translate-y-3"></div>
+
+<!-- =====================================================================
+     🔥 FIREBASE KONFIGURÁCIA
+     ---------------------------------------------------------------------
+     Skopíruj sem objekt firebaseConfig z Firebase konzoly:
+     Project settings → Your apps → </> (web app) → firebaseConfig
+
+     Ak necháš placeholdery ("PASTE_..."), aplikácia pobeží v offline
+     režime (localStorage) a v admin paneli sa zobrazí upozornenie.
+     ===================================================================== -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+// (Analytics odstránené — nepoužíva sa)
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAgxal6HJqMZ4q0X0gNHeKXWFsT-3D_cFM",
+    authDomain: "svadba-na-prvy-pohlad.firebaseapp.com",
+    databaseURL: "https://svadba-na-prvy-pohlad-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "svadba-na-prvy-pohlad",
+    storageBucket: "svadba-na-prvy-pohlad.firebasestorage.app",
+    messagingSenderId: "1051111910959",
+    appId: "1:1051111910959:web:3db7d4d8d52c77870320da",
+    measurementId: "G-8B5K6X9S8C"
+  };
+// Realtime Database vyžaduje skutočnú databaseURL. Bez úplnej konfigurácie
+// aplikácia bezpečne zostane v lokálnom režime.
+const requiredConfig = ['apiKey', 'authDomain', 'databaseURL', 'projectId', 'appId'];
+const isConfigured = requiredConfig.every(key =>
+  typeof firebaseConfig[key] === 'string' && firebaseConfig[key].trim().length > 0
+) && !Object.values(firebaseConfig).some(v => /PASTE|YOUR_|EXAMPLE/i.test(String(v)));
+
+let firebase = null;
+let firebaseInitError = null;
+if (isConfigured) {
+  try {
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app, firebaseConfig.databaseURL);
+    firebase = { db, ref, set, onValue };
+    console.log('🔥 Firebase inicializovaný; overuje sa prístup k databáze.');
+  } catch (e) {
+    firebaseInitError = e;
+    console.error('Firebase inicializácia zlyhala:', e);
+  }
+} else {
+  console.warn('⚠️ Firebase nie je nakonfigurovaný — bežím offline.');
+}
+
+window.__firebase = firebase;
+window.__firebaseConfigured = isConfigured;
+window.__firebaseInitError = firebaseInitError;
+window.dispatchEvent(new CustomEvent('firebase-ready', {
+  detail: { ok: !!firebase, configured: isConfigured, error: firebaseInitError }
+}));
+</script>
+
+<script>
+/* =====================================================================
+   1) KONFIGURÁCIA A DÁTA
+   ===================================================================== */
+
+const STORAGE_KEY     = 'svadba_boys_v3';
+const PENDING_KEY     = 'svadba_pending_boys_v1';
+// ⚠️ PIN je vidno v zdrojáku — nie je to ochrana. Skutočná ochrana = pravidlá Firebase Realtime Database.
+const ADMIN_PIN       = '1548';
+const CLOUD_PATH      = 'boys';           // cesta v Realtime Database
+
+const QUESTIONS = [
+  { q: 'Čo máte radšej?', a: 'Hory', b: 'More' },
+  { q: 'Ako to máte s plánovaním?', a: 'Všetko si naplánujem', b: 'Radšej improvizujem' },
+  { q: 'Ste skôr...', a: 'Ranné vtáča', b: 'Nočná sova' },
+  { q: 'Ste radšej...', a: 'Vo veľkej partii', b: 'V menšej skupinke' },
+  { q: 'Aké zviera máte radšej?', a: 'Psy', b: 'Mačky' },
+  { q: 'Keby ste si mohli vybrať superschopnosť...', a: 'Čítať myšlienky', b: 'Neviditeľnosť' },
+  { q: 'Preferujete...', a: 'Variť doma', b: 'Ísť do reštaurácie' },
+  { q: 'Máte radšej...', a: 'Slané', b: 'Sladké' },
+];
+
+const SHORT_QUESTIONS = ['Hory/More','Plánovanie','Ráno/Noc','Partia','Zviera','Superschop.','Varenie','Chuť'];
+const SHORT_OPTIONS = [
+  ['Hory','More'], ['Plán','Improv'], ['Ráno','Noc'], ['Partia','Skupina'],
+  ['Psy','Mačky'], ['Myšlienky','Nevid.'], ['Doma','Reštaur.'], ['Slané','Sladké'],
+];
+
+const SHARED_PHRASES = [
+  ['Oboch vás volajú hory.', 'Oboch vás ťahá more a slnko.'],
+  ['Obaja máte všetko naplánované do detailu.', 'Obaja radšej improvizujete a nechávate veci plynúť.'],
+  ['Ste obaja ranné vtáčatá.', 'Obaja ste nočné sovy — rána sú pre vás tabu.'],
+  ['Cítite sa najlepšie vo veľkej partii.', 'Uprednostňujete menšiu skupinku blízkych.'],
+  ['Obaja ste tím psy.', 'Obaja ste tím mačky.'],
+  ['Obaja by ste chceli čítať myšlienky.', 'Obaja by ste si vybrali neviditeľnosť.'],
+  ['Obaja radi varíte doma.', 'Obaja si radi zájdete do reštaurácie.'],
+  ['Obaja ste tím slané.', 'Obaja ste tím sladké.'],
+];
+
+const DEMO_BOYS = [
+  { name: 'Jakub', nickname: 'Kubo', desc: 'Triedny filozof. Má teóriu na všetko a vždy pri sebe energeťák.', photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80', answers: ['A','A','B','B','A','A','A','A'] },
+  { name: 'Matej', nickname: 'Mates', desc: 'Chodí do posilky aj v deň maturity. Rozcvičku nikdy nevynechá.', photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80', answers: ['A','A','A','A','A','B','A','A'] },
+  { name: 'Samuel', nickname: 'Samo', desc: 'Kapela, gitara a básne v zošite. Párty má rád, ale o 22:00 už chce ísť domov.', photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80', answers: ['B','B','B','B','B','B','B','B'] },
+];
+
+/* =====================================================================
+   2) POMOCNÉ
+   ===================================================================== */
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+const clone = (o) => JSON.parse(JSON.stringify(o));
+const genId = () => 'b_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8);
+
+const avatarFallback = (name) =>
+  'https://ui-avatars.com/api/?name=' + encodeURIComponent(name || '?') +
+  '&background=fecdd3&color=9f1239&size=400&bold=true';
+
+function toB64Url(str) {
+  return btoa(unescape(encodeURIComponent(str))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function fromB64Url(b64) {
+  let s = String(b64).trim().replace(/-/g, '+').replace(/_/g, '/');
+  while (s.length % 4) s += '=';
+  return decodeURIComponent(escape(atob(s)));
+}
+function encodeBoy(boy) {
+  const data = [boy.name, boy.nickname, boy.desc, boy.photo, (boy.answers || []).join('')];
+  return toB64Url(JSON.stringify(data));
+}
+function decodeBoy(code) {
+  try {
+    const arr = JSON.parse(fromB64Url(code));
+    if (!Array.isArray(arr) || arr.length < 5) return null;
+    return {
+      id: genId(),
+      name: String(arr[0] || 'Chalan').slice(0, 30),
+      nickname: String(arr[1] || '').slice(0, 20),
+      desc: String(arr[2] || '').slice(0, 200),
+      photo: String(arr[3] || ''),
+      answers: String(arr[4] || '').padEnd(QUESTIONS.length, 'A').slice(0, QUESTIONS.length).split('').map(v => v === 'B' ? 'B' : 'A'),
+    };
+  } catch (e) { return null; }
+}
+
+function toast(msg) {
+  const t = $('toast');
+  t.innerHTML = '';
+  t.textContent = msg;
+  t.classList.remove('opacity-0', 'translate-y-3');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.add('opacity-0', 'translate-y-3'), 2200);
+}
+
+function showUndoToast(msg, onUndo) {
+  const t = $('toast');
+  t.innerHTML = '';
+  const span = document.createElement('span');
+  span.textContent = msg;
+  const btn = document.createElement('button');
+  btn.textContent = 'Vrátiť';
+  btn.className = 'ml-3 px-3 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-xs font-bold transition';
+  btn.onclick = () => { t.classList.add('opacity-0', 'translate-y-3'); clearTimeout(t._timer); onUndo(); };
+  t.appendChild(span);
+  t.appendChild(btn);
+  t.classList.remove('opacity-0', 'translate-y-3');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.add('opacity-0', 'translate-y-3'), 5000);
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+  $(id).classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* =====================================================================
+   3) STAV A SYNCHRONIZÁCIA S FIREBASE
+   ===================================================================== */
+
+let boys = [];                            // zdroj pravdy pre celú app
+let teacherState = { name: '', answers: [], current: 0 };
+let locked = false;
+let cloudReady = false;
+let cloudOnline = false;
+let lastCloudJson = '';                   // na detekciu zmien
+
+/* ---- Lokálna cache (funguje vždy, aj offline) ---- */
+function loadLocalCache() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.map(normalizeBoy);
+  } catch (e) { return []; }
+}
+function saveLocalCache(arr) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch (e) {}
+}
+function normalizeBoy(b) {
+  return {
+    id: String(b.id || '').replace(/[^\w-]/g, '').slice(0, 40) || genId(),
+    name: String(b.name || 'Chalan').slice(0, 30),
+    nickname: String(b.nickname || '').slice(0, 20),
+    desc: String(b.desc || '').slice(0, 200),
+    photo: String(b.photo || ''),
+    answers: Array(QUESTIONS.length).fill('A').map((_, i) => {
+      const v = Array.isArray(b.answers) ? b.answers[i] : 'A';
+      return v === 'B' ? 'B' : 'A';
+    }),
+  };
+}
+
+/* ---- Inicializácia: najprv z cache, potom z cloudu ---- */
+boys = loadLocalCache();
+
+/* ---- Zápis: vždy do cache + do cloudu (ak je pripojený) ---- */
+let pendingWrite = null;
+let pendingWriteResolvers = [];
+function saveBoys() {
+  // Lokálna cache sa uloží okamžite, aj keď internet/Firebase nefunguje.
+  saveLocalCache(boys);
+
+  if (!window.__firebase) return Promise.resolve('local');
+
+  // Debounce zápisov pri úprave viacerých polí naraz. Všetky čakajúce volania
+  // dostanú výsledok toho istého skutočného zápisu, nie predčasné potvrdenie.
+  if (pendingWrite) clearTimeout(pendingWrite);
+  const result = new Promise(resolve => pendingWriteResolvers.push(resolve));
+  pendingWrite = setTimeout(async () => {
+    const resolvers = pendingWriteResolvers;
+    pendingWriteResolvers = [];
+    pendingWrite = null;
+    try {
+      const { db, ref, set } = window.__firebase;
+      const sanitized = boys.map(b => ({
+        id: b.id,
+        name: b.name,
+        nickname: b.nickname,
+        desc: b.desc,
+        photo: b.photo,
+        answers: b.answers,
+      }));
+      await set(ref(db, CLOUD_PATH), sanitized);
+      lastCloudJson = JSON.stringify(sanitized.map(normalizeBoy));
+      cloudOnline = true;
+      updateCloudStatus('online');
+      resolvers.forEach(resolve => resolve('cloud'));
+    } catch (e) {
+      console.error('Cloud write failed:', e);
+      cloudOnline = false;
+      updateCloudStatus('error');
+      toast('Nepodarilo sa uložiť do cloudu. Dáta zostali v tomto prehliadači. 😕');
+      resolvers.forEach(resolve => resolve('error'));
+    }
+  }, 250);
+  return result;
+}
+
+/* ---- Načúvanie na zmeny z cloudu (real-time) ---- */
+function listenToCloud() {
+  if (!window.__firebase) return;
+  const { db, ref, onValue } = window.__firebase;
+
+  onValue(ref(db, CLOUD_PATH), (snapshot) => {
+    const data = snapshot.val();
+    cloudReady = true;
+    cloudOnline = true;
+
+    // Prvé pripojenie k prázdnemu cloudu: lokálne dáta nemažeme, ale nahráme ich
+    if (data == null && boys.length > 0 && !lastCloudJson) {
+      lastCloudJson = '[]';
+      saveBoys();
+      updateCloudStatus('online');
+      return;
+    }
+
+    const remote = (Array.isArray(data)
+      ? data.filter(Boolean)
+      : data
+        ? Object.values(data).filter(Boolean)
+        : []).map(normalizeBoy);
+
+    const remoteJson = JSON.stringify(remote);
+    if (remoteJson !== lastCloudJson) {
+      lastCloudJson = remoteJson;
+      boys = remote;
+      saveLocalCache(boys);
+      refreshUIFromBoys();
+    }
+    updateCloudStatus('online');
+  }, (error) => {
+    console.error('Cloud listen error:', error);
+    cloudOnline = false;
+    updateCloudStatus('error');
+  });
+}
+
+function refreshUIFromBoys() {
+  // Ak je admin otvorený, prekresli zoznam
+  const typing = document.activeElement && document.activeElement.matches && document.activeElement.matches('#admin-list input');
+  if (!$('modal-admin').classList.contains('hidden') && !typing) {
+    renderAdmin();
+  }
+  // Aktualizuj počet
+  $('admin-count').textContent = boys.length;
+  // Ak by bol otvorený výsledok, necháme tak (učiteľka už vidí svoj výsledok)
+}
+
+function updateCloudStatus(state) {
+  const el = $('cloud-status');
+  if (!el) return;
+
+  if (!window.__firebaseConfigured) {
+    el.textContent = 'offline (localStorage)';
+    el.className = 'font-semibold text-amber-600';
+    $('offline-warning').classList.remove('hidden');
+    return;
+  }
+  if (!window.__firebase) {
+    el.textContent = 'chyba pripojenia';
+    el.className = 'font-semibold text-rose-600';
+    return;
+  }
+  if (state === 'error' || !cloudOnline) {
+    el.textContent = 'cloud: chyba';
+    el.className = 'font-semibold text-rose-600';
+    return;
+  }
+  if (!cloudReady) {
+    el.textContent = 'cloud: pripájam…';
+    el.className = 'font-semibold text-slate-400';
+    return;
+  }
+  el.textContent = 'cloud: ✓ online';
+  el.className = 'font-semibold text-emerald-600';
+}
+
+/* Reakcia na pripravenosť Firebase (event z module scriptu) */
+window.addEventListener('firebase-ready', (e) => {
+  const { ok, configured } = e.detail;
+  if (ok) {
+    listenToCloud();
+    // Ak máme lokálne dáta a cloud je prázdny, inicializujeme cloud
+    setTimeout(() => {
+      if (cloudReady && boys.length > 0 && !lastCloudJson.length) {
+        // cloud je prázdny, ale máme lokálne dáta — pošli ich
+        saveBoys();
+      }
+    }, 1500);
+  } else {
+    updateCloudStatus();
+    if (!configured) {
+      $('offline-warning').classList.remove('hidden');
+    }
+  }
+});
+
+/* =====================================================================
+   4) DEKORÁCIA
+   ===================================================================== */
+
+(function spawnHearts() {
+  const wrap = $('hearts');
+  const emojis = ['💗','💕','💘','🌹','💍','✨','💞'];
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < 16; i++) {
+    const el = document.createElement('span');
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    const size = 12 + Math.random() * 20;
+    el.style.cssText = 'position:absolute;left:' + (Math.random() * 100).toFixed(2) + '%;top:' + (Math.random() * 100).toFixed(2) + '%;' +
+      'font-size:' + size.toFixed(0) + 'px;opacity:' + (0.12 + Math.random() * 0.22).toFixed(2) + ';' +
+      'animation:floaty ' + (4 + Math.random() * 4).toFixed(1) + 's ease-in-out ' + (Math.random() * 4).toFixed(1) + 's infinite;';
+    frag.appendChild(el);
+  }
+  wrap.appendChild(frag);
+})();
+
+/* =====================================================================
+   5) UČITEĽKA — FLOW
+   ===================================================================== */
+
+$('btn-start').addEventListener('click', startQuiz);
+$('teacher-name').addEventListener('keydown', e => { if (e.key === 'Enter') startQuiz(); });
+
+function startQuiz() {
+  const name = $('teacher-name').value.trim();
+  if (!name) {
+    $('teacher-name').focus();
+    $('teacher-name').classList.add('ring-4', 'ring-rose-300');
+    setTimeout(() => $('teacher-name').classList.remove('ring-4', 'ring-rose-300'), 900);
+    return;
+  }
+  if (!boys.length) {
+    toast(window.__firebaseConfigured ? 'Ešte sa načítavajú chalani… skús o chvíľu 😊' : 'Zatiaľ nemáme žiadnych chalanov 😅');
+    return;
+  }
+  teacherState = { name, answers: [], current: 0 };
+  $('quiz-name-label').textContent = name;
+  showScreen('screen-quiz');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const i = teacherState.current;
+  const q = QUESTIONS[i];
+  $('quiz-step-label').textContent = 'Otázka ' + (i + 1) + ' z ' + QUESTIONS.length;
+  $('quiz-progress').style.width = (((i + 1) / QUESTIONS.length) * 100).toFixed(1) + '%';
+  $('question-text').textContent = q.q;
+
+  const selected = teacherState.answers[i];
+  $('question-options').innerHTML = ['A', 'B'].map(key => {
+    const isSel = selected === key;
+    const label = key === 'A' ? q.a : q.b;
+    return (
+      '<button data-choice="' + key + '" class="option-btn w-full text-left rounded-2xl border-2 px-4 py-4 transition active:scale-[.98] flex items-start gap-3 ' +
+        (isSel ? 'border-rose-500 bg-rose-50 shadow-md shadow-rose-200/60' : 'border-rose-100 bg-white hover:border-rose-300') + '">' +
+        '<span class="shrink-0 w-8 h-8 rounded-full grid place-items-center font-extrabold text-sm ' + (isSel ? 'bg-rose-500 text-white' : 'bg-rose-100 text-rose-500') + '">' + key + '</span>' +
+        '<span class="font-semibold text-slate-700 leading-snug pt-1.5 text-[15px]">' + esc(label) + '</span>' +
+      '</button>'
+    );
+  }).join('');
+
+  $('question-options').querySelectorAll('.option-btn').forEach(btn =>
+    btn.addEventListener('click', () => chooseAnswer(btn.dataset.choice))
+  );
+
+  const card = $('question-card');
+  card.classList.remove('animate-pop');
+  void card.offsetWidth;
+  card.classList.add('animate-pop');
+  locked = false;
+}
+
+function chooseAnswer(choice) {
+  if (locked) return;
+  locked = true;
+  teacherState.answers[teacherState.current] = choice;
+
+  $('question-options').querySelectorAll('.option-btn').forEach(b => {
+    const isSel = b.dataset.choice === choice;
+    b.className = 'option-btn w-full text-left rounded-2xl border-2 px-4 py-4 transition flex items-start gap-3 ' +
+      (isSel ? 'border-rose-500 bg-rose-50 shadow-md shadow-rose-200/60 scale-[1.02]' : 'border-rose-100 bg-white opacity-50');
+    const badge = b.querySelector('span');
+    badge.className = 'shrink-0 w-8 h-8 rounded-full grid place-items-center font-extrabold text-sm ' +
+      (isSel ? 'bg-rose-500 text-white' : 'bg-rose-100 text-rose-500');
+  });
+
+  setTimeout(() => {
+    if (teacherState.current < QUESTIONS.length - 1) {
+      teacherState.current++;
+      renderQuestion();
+    } else {
+      $('quiz-progress').style.width = '100%';
+      showResult();
+    }
+  }, 280);
+}
+
+$('btn-back').addEventListener('click', () => {
+  if (locked) return;
+  if (teacherState.current > 0) { teacherState.current--; renderQuestion(); }
+  else showScreen('screen-intro');
+});
+
+/* --- Matchmaking --- */
+function computeRanking(userAnswers) {
+  return boys.map(boy => {
+    let hits = 0;
+    const common = [];
+    QUESTIONS.forEach((_, i) => { if (boy.answers[i] === userAnswers[i]) { hits++; common.push(i); } });
+    return { boy, hits, common, percent: Math.round((hits / QUESTIONS.length) * 100) };
+  }).map(r => ({ ...r, tie: Math.random() })).sort((x, y) => (y.hits - x.hits) || (x.tie - y.tie));
+}
+
+function buildReason(res) {
+  const p = res.percent;
+  let intro;
+  if (p === 100)    intro = 'Stopercentná zhoda! Toto už nie je náhoda, to je osud. 💍';
+  else if (p >= 80) intro = 'Takmer dokonalá zhoda – máte spolu našliapnuté.';
+  else if (p >= 60) intro = 'Veľmi pekná zhoda. Chémia je tu jednoznačne cítiť.';
+  else if (p >= 40) intro = 'Pol na pol – ale práve protiklady sa priťahujú.';
+  else if (p >= 20) intro = 'Nie je to láska na prvý pohľad, ale iskra tam je.';
+  else              intro = 'Takmer nič spoločné... a práve preto to môže byť dobrodružstvo.';
+  const lines = res.common.slice(0, 3).map(i => SHARED_PHRASES[i][res.boy.answers[i] === 'A' ? 0 : 1]);
+  if (!lines.length) return intro + ' Tentokrát sa nenašla ani jedna spoločná odpoveď, ale to je len detail.';
+  return intro + ' ' + lines.join(' ');
+}
+
+function showResult() {
+  if (!boys.length) { toast('Zoznam chalanov je prázdny 😅'); return; }
+  const ranked = computeRanking(teacherState.answers);
+  const winner = ranked[0];
+  const boy = winner.boy;
+
+  const photo = $('result-photo');
+  photo.onerror = () => { photo.onerror = null; photo.src = avatarFallback(boy.name); };
+  photo.src = boy.photo && boy.photo.trim() ? boy.photo.trim() : avatarFallback(boy.name);
+
+  $('result-name').textContent = boy.name + (boy.nickname ? ' „' + boy.nickname + '“' : '');
+  $('result-desc').textContent = boy.desc || '';
+  $('result-reason').textContent = buildReason(winner);
+  $('result-hits').textContent = winner.hits + ' z ' + QUESTIONS.length + ' odpovedí sa zhoduje';
+
+  $('result-runners').innerHTML = ranked.slice(1, 3).map(r => {
+    const fb = avatarFallback(r.boy.name);
+    return (
+      '<div class="flex items-center gap-3 bg-white/80 rounded-2xl p-2.5 border border-rose-100">' +
+        '<img src="' + esc(r.boy.photo || fb) + '" alt="" data-fallback="' + esc(fb) + '" class="w-10 h-10 rounded-full object-cover bg-rose-100" />' +
+        '<div class="flex-1 text-left min-w-0">' +
+          '<p class="text-sm font-bold text-slate-700 truncate">' + esc(r.boy.name) + '</p>' +
+          '<p class="text-[11px] text-slate-400 truncate">' + esc(r.boy.nickname || '') + '</p>' +
+        '</div>' +
+        '<span class="text-sm font-extrabold text-rose-500">' + r.percent + '%</span>' +
+      '</div>'
+    );
+  }).join('');
+
+  $('result-runners').querySelectorAll('img[data-fallback]').forEach(img => {
+    img.onerror = () => { img.onerror = null; img.src = img.dataset.fallback; };
+  });
+  showScreen('screen-result');
+  animateRing(winner.percent);
+  celebrate();
+}
+
+function animateRing(targetPercent) {
+  const ring = $('result-ring');
+  const num = $('result-percent');
+  const duration = 1200;
+  let startTs = null;
+  function frame(ts) {
+    if (!startTs) startTs = ts;
+    const t = Math.min((ts - startTs) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const val = Math.round(targetPercent * eased);
+    num.textContent = val + '%';
+    ring.style.background = 'conic-gradient(#e11d48 ' + (val * 3.6).toFixed(1) + 'deg, #fecdd3 0deg)';
+    if (t < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+function celebrate() {
+  if (typeof confetti !== 'function') return;
+  const colors = ['#e11d48','#f43f5e','#ec4899','#a855f7','#fbbf24','#ffffff'];
+  const end = Date.now() + 2400;
+  (function loop() {
+    confetti({ particleCount: 3, angle: 60, spread: 70, origin: { x: 0, y: 0.7 }, colors });
+    confetti({ particleCount: 3, angle: 120, spread: 70, origin: { x: 1, y: 0.7 }, colors });
+    if (Date.now() < end) requestAnimationFrame(loop);
+  })();
+  confetti({ particleCount: 140, spread: 100, startVelocity: 45, origin: { y: 0.6 }, colors, scalar: 1.1 });
+  setTimeout(() => confetti({ particleCount: 80, spread: 120, origin: { y: 0.4 }, colors }), 350);
+}
+
+$('btn-restart').addEventListener('click', () => {
+  teacherState = { name: '', answers: [], current: 0 };
+  $('teacher-name').value = '';
+  showScreen('screen-intro');
+});
+
+/* =====================================================================
+   6) QR KÓD
+   ===================================================================== */
+
+function renderQR() {
+  const url = window.location.href.split('#')[0];
+  const box = $('qrcode');
+  box.innerHTML = '';
+  $('qr-url').textContent = (location.protocol === 'file:' ? '⚠️ Stránka beží zo súboru — QR bude fungovať až po nahratí na hosting. ' : '') + url;
+  if (typeof QRCode !== 'undefined') {
+    try {
+      new QRCode(box, { text: url, width: 210, height: 210, colorDark: '#1e293b', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.H });
+      return;
+    } catch (e) {}
+  }
+  const img = document.createElement('img');
+  img.width = 210; img.height = 210; img.alt = 'QR kód';
+  img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=210x210&data=' + encodeURIComponent(url);
+  box.appendChild(img);
+}
+$('btn-qr').addEventListener('click', () => {
+  $('modal-qr').classList.remove('hidden');
+  if (!$('qrcode').childElementCount) renderQR();
+});
+document.querySelectorAll('[data-close-qr]').forEach(el => el.addEventListener('click', () => $('modal-qr').classList.add('hidden')));
+
+/* =====================================================================
+   7) ADMIN
+   ===================================================================== */
+
+const expandedIds = new Set();
+const findBoyById = (id) => boys.find(b => b.id === id);
+
+$('btn-admin').addEventListener('click', () => {
+  $('modal-pin').classList.remove('hidden');
+  $('pin-input').value = '';
+  $('pin-error').textContent = '';
+  setTimeout(() => $('pin-input').focus(), 80);
+});
+
+function tryPin() {
+  if ($('pin-input').value.trim() === ADMIN_PIN) {
+    $('modal-pin').classList.add('hidden');
+    renderAdmin();
+    updateDeviceBadge();
+    updateCloudStatus();
+    $('modal-admin').classList.remove('hidden');
+  } else {
+    $('pin-error').textContent = 'Nesprávny PIN ❌';
+    $('pin-input').value = '';
+    $('pin-input').focus();
+  }
+}
+$('pin-submit').addEventListener('click', tryPin);
+$('pin-input').addEventListener('keydown', e => { if (e.key === 'Enter') tryPin(); });
+document.querySelectorAll('[data-close-pin]').forEach(el => el.addEventListener('click', () => $('modal-pin').classList.add('hidden')));
+
+$('btn-admin-close').addEventListener('click', () => $('modal-admin').classList.add('hidden'));
+document.querySelectorAll('[data-close-admin]').forEach(el => el.addEventListener('click', () => $('modal-admin').classList.add('hidden')));
+
+function renderBoyCard(b) {
+  const fb = avatarFallback(b.name);
+  const isOpen = expandedIds.has(b.id);
+  const inputCls = 'w-full rounded-lg border border-rose-200 bg-white px-2.5 py-2 text-xs outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-400 transition';
+
+  const answerRows = QUESTIONS.map((_, q) => {
+    const sel = b.answers[q] === 'B' ? 'B' : 'A';
+    const [aLabel, bLabel] = SHORT_OPTIONS[q];
+    const btnBase = 'w-14 py-1 rounded-md text-[10px] font-bold border transition active:scale-95';
+    const act = 'bg-rose-500 border-rose-500 text-white shadow-sm';
+    const ina = 'bg-white border-rose-200 text-slate-600';
+    return (
+      '<div class="flex items-center gap-1.5 py-0.5">' +
+        '<span class="text-[9px] font-bold text-slate-300 w-3.5 text-right shrink-0">' + (q + 1) + '</span>' +
+        '<span class="text-[10px] text-slate-500 flex-1 min-w-0 truncate">' + esc(SHORT_QUESTIONS[q]) + '</span>' +
+        '<div class="answer-buttons flex gap-1 shrink-0">' +
+          '<button type="button" data-id="' + b.id + '" data-q="' + q + '" data-choice="A" class="' + btnBase + ' ' + (sel === 'A' ? act : ina) + '">' + esc(aLabel) + '</button>' +
+          '<button type="button" data-id="' + b.id + '" data-q="' + q + '" data-choice="B" class="' + btnBase + ' ' + (sel === 'B' ? act : ina) + '">' + esc(bLabel) + '</button>' +
+        '</div>' +
+      '</div>'
+    );
+  }).join('');
+
+  return (
+    '<div class="boy-card rounded-2xl border border-rose-100 bg-white shadow-sm overflow-hidden" data-id="' + b.id + '">' +
+      '<button type="button" class="w-full p-3 flex items-center gap-3 text-left active:bg-rose-50/60 transition" data-toggle="' + b.id + '">' +
+        '<img src="' + esc(b.photo || fb) + '" data-fallback="' + esc(fb) + '" class="boy-thumb w-11 h-11 rounded-full object-cover bg-rose-100 shrink-0 ring-2 ring-white shadow-sm" alt="" />' +
+        '<div class="flex-1 min-w-0">' +
+          '<p class="text-sm font-bold text-slate-800 truncate">' + esc(b.name || 'Bez mena') + '</p>' +
+          '<p class="text-[11px] text-slate-400 truncate">' + esc(b.nickname || 'bez prezývky') + '</p>' +
+        '</div>' +
+        '<span class="chevron text-slate-400 text-xs transition-transform duration-200 ' + (isOpen ? 'rotate-180' : '') + '">▼</span>' +
+      '</button>' +
+      '<div class="px-3 pb-3 space-y-2 border-t border-rose-50 ' + (isOpen ? '' : 'hidden') + '" data-details="' + b.id + '">' +
+        '<div class="grid grid-cols-2 gap-2 pt-2">' +
+          '<input data-id="' + b.id + '" data-f="name" value="' + esc(b.name) + '" placeholder="Meno" class="' + inputCls + '" />' +
+          '<input data-id="' + b.id + '" data-f="nickname" value="' + esc(b.nickname) + '" placeholder="Prezývka" class="' + inputCls + '" />' +
+        '</div>' +
+        '<input data-id="' + b.id + '" data-f="desc" value="' + esc(b.desc) + '" placeholder="Popis" class="' + inputCls + '" />' +
+        '<input data-id="' + b.id + '" data-f="photo" value="' + esc(b.photo) + '" placeholder="URL fotky" class="' + inputCls + '" />' +
+        '<div class="pt-2 border-t border-rose-100">' +
+          '<p class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">Odpovede — klikni na A/B</p>' +
+          '<div class="space-y-0.5">' + answerRows + '</div>' +
+        '</div>' +
+        '<div class="flex gap-2 pt-2">' +
+          '<button data-share="' + b.id + '" class="flex-1 rounded-lg bg-rose-50 border border-rose-200 text-rose-600 text-[11px] font-bold py-2 active:scale-[.98] transition">📋 Kód</button>' +
+          '<button data-dup="' + b.id + '" class="flex-1 rounded-lg bg-rose-50 border border-rose-200 text-rose-600 text-[11px] font-bold py-2 active:scale-[.98] transition">⧉ Kopírovať</button>' +
+          '<button data-del="' + b.id + '" class="flex-1 rounded-lg bg-white border border-rose-200 text-rose-500 text-[11px] font-bold py-2 active:scale-[.98] transition">🗑 Zmazať</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function renderAdmin() {
+  $('admin-count').textContent = boys.length;
+  const list = $('admin-list');
+  if (!boys.length) {
+    list.innerHTML =
+      '<div class="text-center py-10 px-4">' +
+        '<div class="text-4xl mb-3">📭</div>' +
+        '<p class="text-sm font-semibold text-slate-600">Zatiaľ žiadni chalani</p>' +
+        '<p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">Klikni na <strong>📋 Prijať kódy</strong> a vlož kódy od chalanov, alebo <strong>📲 Z tohto zariadenia</strong>, alebo pridaj demo cez 🎭.</p>' +
+      '</div>';
+    return;
+  }
+  list.innerHTML = boys.map(renderBoyCard).join('');
+  list.querySelectorAll('img.boy-thumb').forEach(img => {
+    img.onerror = () => {
+      if (!img.dataset.failed) { img.dataset.failed = '1'; img.src = img.dataset.fallback || avatarFallback('?'); }
+    };
+  });
+  applySearch();
+}
+
+function applySearch() {
+  const q = ($('admin-search').value || '').toLowerCase().trim();
+  document.querySelectorAll('.boy-card').forEach(card => {
+    const boy = findBoyById(card.dataset.id);
+    if (!boy) return;
+    const match = !q ||
+      (boy.name || '').toLowerCase().includes(q) ||
+      (boy.nickname || '').toLowerCase().includes(q) ||
+      (boy.desc || '').toLowerCase().includes(q);
+    card.style.display = match ? '' : 'none';
+  });
+}
+$('admin-search').addEventListener('input', applySearch);
+
+$('admin-list').addEventListener('input', (e) => {
+  const inp = e.target.closest('[data-f]');
+  if (!inp) return;
+  const boy = findBoyById(inp.dataset.id);
+  if (!boy) return;
+  boy[inp.dataset.f] = inp.value;
+  saveBoys();
+  if (inp.dataset.f === 'photo' || inp.dataset.f === 'name') {
+    const card = inp.closest('.boy-card');
+    const thumb = card?.querySelector('.boy-thumb');
+    if (thumb) {
+      const fb = avatarFallback(boy.name);
+      thumb.dataset.fallback = fb;
+      thumb.dataset.failed = '';
+      if (inp.dataset.f === 'photo') thumb.src = (boy.photo || '').trim() || fb;
+      else if (!(boy.photo || '').trim()) thumb.src = fb;
+    }
+  }
+});
+
+$('admin-list').addEventListener('click', (e) => {
+  const toggle = e.target.closest('[data-toggle]');
+  if (toggle) {
+    const id = toggle.dataset.toggle;
+    const card = toggle.closest('.boy-card');
+    const details = card.querySelector('[data-details]');
+    const chevron = card.querySelector('.chevron');
+    if (expandedIds.has(id)) { expandedIds.delete(id); details.classList.add('hidden'); chevron.classList.remove('rotate-180'); }
+    else { expandedIds.add(id); details.classList.remove('hidden'); chevron.classList.add('rotate-180'); }
+    return;
+  }
+  const share = e.target.closest('[data-share]');
+  if (share) {
+    const boy = findBoyById(share.dataset.share);
+    if (boy) {
+      const code = encodeBoy(boy);
+      navigator.clipboard?.writeText(code).then(() => toast('Kód skopírovaný ✓')).catch(() => prompt('Kód:', code));
+    }
+    return;
+  }
+  const dup = e.target.closest('[data-dup]'); if (dup) { duplicateBoy(dup.dataset.dup); return; }
+  const del = e.target.closest('[data-del]'); if (del) { deleteBoy(del.dataset.del); return; }
+
+  const choice = e.target.closest('[data-choice][data-q]');
+  if (choice) {
+    const boy = findBoyById(choice.dataset.id);
+    if (!boy) return;
+    const q = Number(choice.dataset.q);
+    const val = choice.dataset.choice === 'B' ? 'B' : 'A';
+    boy.answers[q] = val;
+    saveBoys();
+    const row = choice.closest('.answer-buttons');
+    if (row) row.querySelectorAll('[data-choice]').forEach(btn => {
+      const on = btn.dataset.choice === val;
+      btn.classList.toggle('bg-rose-500', on);
+      btn.classList.toggle('border-rose-500', on);
+      btn.classList.toggle('text-white', on);
+      btn.classList.toggle('shadow-sm', on);
+      btn.classList.toggle('bg-white', !on);
+      btn.classList.toggle('border-rose-200', !on);
+      btn.classList.toggle('text-slate-600', !on);
+    });
+  }
+});
+
+function addBoy() {
+  $('admin-search').value = '';
+  const nb = { id: genId(), name: 'Nový chalan', nickname: '', desc: '', photo: '', answers: Array(QUESTIONS.length).fill('A') };
+  boys.push(nb);
+  expandedIds.add(nb.id);
+  saveBoys(); renderAdmin();
+  setTimeout(() => document.querySelector('[data-id="' + nb.id + '"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}
+
+function duplicateBoy(id) {
+  const idx = boys.findIndex(b => b.id === id);
+  if (idx < 0) return;
+  $('admin-search').value = '';
+  const copy = clone(boys[idx]);
+  copy.id = genId(); copy.name = copy.name + ' (kópia)';
+  boys.splice(idx + 1, 0, copy);
+  expandedIds.add(copy.id);
+  saveBoys(); renderAdmin();
+  setTimeout(() => document.querySelector('[data-id="' + copy.id + '"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}
+
+function deleteBoy(id) {
+  const idx = boys.findIndex(b => b.id === id);
+  if (idx < 0) return;
+  const [removed] = boys.splice(idx, 1);
+  expandedIds.delete(id);
+  saveBoys(); renderAdmin();
+  showUndoToast('Zmazaný: ' + (removed.name || ''), () => { boys.splice(idx, 0, removed); saveBoys(); renderAdmin(); toast('Obnovené ✅'); });
+}
+
+$('btn-admin-add').addEventListener('click', addBoy);
+
+$('btn-admin-demo').addEventListener('click', () => {
+  const backup = clone(boys);
+  DEMO_BOYS.forEach(b => boys.push({ id: genId(), ...clone(b) }));
+  saveBoys(); renderAdmin();
+  showUndoToast('Pridané demo profily', () => { boys = backup; saveBoys(); renderAdmin(); });
+});
+
+$('btn-admin-save').addEventListener('click', async () => {
+  const button = $('btn-admin-save');
+  button.disabled = true;
+  const originalText = button.textContent;
+  button.textContent = '⏳ Ukladám…';
+  try {
+    const result = await saveBoys();
+    $('modal-admin').classList.add('hidden');
+    if (result === 'cloud') toast('Úspešne uložené do cloudu ✅');
+    else if (result === 'local') toast('Uložené iba v tomto prehliadači 💾');
+    else toast('Cloud zápis zlyhal; lokálna kópia zostala uložená ⚠️');
+  } finally {
+    button.disabled = false;
+    button.textContent = originalText;
+  }
+});
+
+/* --- Export/Import JSON --- */
+$('btn-export').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(boys, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'svadba-chalani-' + new Date().toISOString().slice(0, 10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Export hotový 📥');
+});
+
+$('btn-import').addEventListener('click', () => $('import-file').click());
+
+$('import-file').addEventListener('change', (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (!Array.isArray(data) || !data.length) throw new Error('Neplatný súbor');
+      const old = clone(boys);
+      data.filter(Boolean).forEach(b => boys.push({ ...normalizeBoy(b), id: genId() }));
+      expandedIds.clear();
+      saveBoys(); renderAdmin();
+      showUndoToast('Importovaných ' + data.length, () => { boys = old; saveBoys(); renderAdmin(); });
+    } catch (err) { toast('Chyba: ' + err.message); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+/* --- Prijať kódy --- */
+$('btn-import-codes').addEventListener('click', () => {
+  $('codes-input').value = '';
+  $('codes-status').textContent = '';
+  $('modal-codes').classList.remove('hidden');
+  setTimeout(() => $('codes-input').focus(), 80);
+});
+document.querySelectorAll('[data-close-codes]').forEach(el => el.addEventListener('click', () => $('modal-codes').classList.add('hidden')));
+
+$('codes-input').addEventListener('input', () => {
+  const n = $('codes-input').value.split(/\s+/).filter(Boolean).length;
+  $('codes-status').textContent = n > 0 ? 'Načítaných kódov: ' + n : '';
+});
+
+$('codes-submit').addEventListener('click', () => {
+  const text = $('codes-input').value.trim();
+  if (!text) return;
+  const lines = text.split(/\s+/).filter(Boolean);
+  const old = clone(boys);
+  let added = 0, failed = 0;
+  lines.forEach(line => {
+    const boy = decodeBoy(line);
+    if (boy) { boys.push(boy); added++; }
+    else failed++;
+  });
+  saveBoys(); renderAdmin();
+  $('modal-codes').classList.add('hidden');
+  if (added > 0) {
+    showUndoToast('Pridaných ' + added + (failed ? ' (chybných: ' + failed + ')' : ''), () => { boys = old; saveBoys(); renderAdmin(); });
+  } else {
+    toast('Žiadny kód sa nepodarilo načítať 😕');
+  }
+});
+
+/* --- Prijať z tohto zariadenia --- */
+function getPending() {
+  try {
+    const raw = localStorage.getItem(PENDING_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) { return []; }
+}
+function clearPending() {
+  try { localStorage.removeItem(PENDING_KEY); } catch (e) {}
+}
+
+function updateDeviceBadge() {
+  const n = getPending().length;
+  const badge = $('device-badge');
+  if (n > 0) {
+    badge.textContent = n;
+    badge.classList.remove('hidden');
+  } else {
+    badge.classList.add('hidden');
+  }
+}
+
+$('btn-import-device').addEventListener('click', () => {
+  const pending = getPending();
+  if (!pending.length) { toast('Žiadne profily na tomto zariadení'); return; }
+  const old = clone(boys);
+  pending.forEach(b => boys.push({ ...normalizeBoy(b), id: genId() }));
+  clearPending();
+  saveBoys(); renderAdmin();
+  updateDeviceBadge();
+  showUndoToast('Prijatých ' + pending.length + ' profilov', () => { boys = old; saveBoys(); renderAdmin(); });
+});
+
+/* =====================================================================
+   8) INIT
+   ===================================================================== */
+
+window.addEventListener('load', () => {
+  renderQR();
+  updateDeviceBadge();
+  $('admin-count').textContent = boys.length;
+  updateCloudStatus();
+});
+
+window.addEventListener('hashchange', renderQR);
+</script>
+</body>
+</html>
