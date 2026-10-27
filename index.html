@@ -145,7 +145,7 @@
 </main>
 
 <footer class="max-w-md mx-auto px-4 pb-8 text-center">
-  <p class="text-[10px] text-slate-400">v2.1.0 · október 2026 · Svadba na prvý pohľad</p>
+  <p class="text-[10px] text-slate-400">v2.2.0 · október 2026 · Svadba na prvý pohľad</p>
 </footer>
 
 <!-- QR modal -->
@@ -278,7 +278,7 @@
      ===================================================================== -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import { getDatabase, ref, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyAgxal6HJqMZ4q0X0gNHeKXWFsT-3D_cFM",
@@ -290,6 +290,7 @@ import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebase
     appId: "1:1051111910959:web:3db7d4d8d52c77870320da",
     measurementId: "G-8B5K6X9S8C"
   };
+
 // Realtime Database vyžaduje skutočnú databaseURL. Bez úplnej konfigurácie
 // aplikácia bezpečne zostane v lokálnom režime.
 const requiredConfig = ['apiKey', 'authDomain', 'databaseURL', 'projectId', 'appId'];
@@ -303,7 +304,7 @@ if (isConfigured) {
   try {
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app, firebaseConfig.databaseURL);
-    firebase = { db, ref, set, onValue };
+    firebase = { db, ref, set, onValue, remove };
     console.log('🔥 Firebase inicializovaný.');
   } catch (e) {
     firebaseInitError = e;
@@ -452,6 +453,8 @@ let cloudOnline = false;
 let lastCloudJson = '';
 let lastResultsJson = '';
 let resultsReady = false;
+let clearingResults = false;       // guard: počas mazania ignoruj listener
+let startupSyncPending = true;     // jednorazová migrácia lokál → cloud
 
 /* ---- Lokálna cache ---- */
 function loadLocalCache() {
@@ -613,14 +616,28 @@ function listenToResults() {
     const data = snapshot.val();
     resultsReady = true;
 
-    // Prvé pripojenie k prázdnemu cloudu — pošli lokálne výsledky
+    // Počas mazania výsledkov ignorujeme akékoľvek zmeny z cloudu
+    if (clearingResults) return;
+
     if (data == null) {
-      if (results.length > 0) {
-        results.forEach(r => saveResultToCloud(r));
+      if (startupSyncPending) {
+        // Prvé pripojenie k prázdnemu cloudu — jednorazová migrácia lokál → cloud
+        startupSyncPending = false;
+        if (results.length > 0) {
+          results.forEach(r => saveResultToCloud(r));
+        }
+      } else if (results.length > 0) {
+        // Cloud je prázdny (napr. po vymazaní z iného zariadenia) — zosúlaď lokál
+        results = [];
+        saveResultsLocalCache();
+        updateResultsStatus();
+        if (!$('modal-results').classList.contains('hidden')) renderResults();
       }
       updateResultsStatus();
       return;
     }
+
+    startupSyncPending = false;
 
     const remote = (Array.isArray(data) ? data.filter(Boolean) : Object.values(data).filter(Boolean))
       .map(normalizeResult)
@@ -698,7 +715,6 @@ function updateResultsStatus() {
   el.textContent = '✓ online';
   el.className = 'font-semibold text-emerald-600';
 
-  // Badge s počtom
   const badge = $('results-badge');
   if (badge) {
     if (results.length > 0) {
@@ -1394,7 +1410,6 @@ function renderResults() {
 $('btn-results-export').addEventListener('click', () => {
   if (!results.length) { toast('Žiadne výsledky na export'); return; }
 
-  // Human-readable export s popismi otázok a odpovedí
   const exportData = results.map(r => ({
     teacherName: r.teacherName,
     timestamp: new Date(r.timestamp).toISOString(),
@@ -1421,24 +1436,35 @@ $('btn-results-clear').addEventListener('click', async () => {
   if (!results.length) { toast('Žiadne výsledky na vymazanie'); return; }
   if (!confirm('Naozaj vymazať všetky výsledky učiteliek?\n\nTáto akcia sa nedá vrátiť.')) return;
 
+  clearingResults = true;
+  const previousResults = clone(results);
+
+  // Okamžite vyprázdni lokálne UI
   results = [];
   saveResultsLocalCache();
   updateResultsStatus();
-
-  if (window.__firebase) {
-    try {
-      const { db, ref, set } = window.__firebase;
-      await set(ref(db, CLOUD_RESULTS_PATH), null);
-      toast('Výsledky vymazané ✅');
-    } catch (e) {
-      console.error('Cloud clear failed:', e);
-      toast('Lokálne vymazané, ale cloud sa nepodarilo vyčistiť 😕');
-    }
-  } else {
-    toast('Lokálne vymazané ✅');
-  }
-
   renderResults();
+
+  try {
+    if (window.__firebase) {
+      const { db, ref, remove } = window.__firebase;
+      await remove(ref(db, CLOUD_RESULTS_PATH));
+      lastResultsJson = '';
+      toast('Výsledky vymazané ✅');
+    } else {
+      toast('Lokálne vymazané ✅');
+    }
+  } catch (e) {
+    console.error('Cloud clear failed:', e);
+    // Rollback — ak cloud zlyhal, vráť pôvodné výsledky
+    results = previousResults;
+    saveResultsLocalCache();
+    updateResultsStatus();
+    renderResults();
+    toast('Cloud sa nepodarilo vyčistiť — obnovujem pôvodné výsledky 😕');
+  } finally {
+    clearingResults = false;
+  }
 });
 
 /* =====================================================================
