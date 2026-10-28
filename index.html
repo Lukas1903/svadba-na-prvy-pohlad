@@ -303,8 +303,8 @@ const firebaseConfig = {
 };
 
 // !!! VLOŽTE SVOJ RECAPTCHA SITE KEY !!!
-//const RECAPTCHA_SITE_KEY = '6LfePQUuAAAAAKHtVTKT5JLv0ebtbIsdyD6HYvml';
-const RECAPTCHA_SITE_KEY = '';
+const RECAPTCHA_SITE_KEY = '6LfePQUuAAAAAKHtVTKT5JLv0ebtbIsdyD6HYvml';
+//const RECAPTCHA_SITE_KEY = '';
 
 const requiredConfig = ['apiKey', 'authDomain', 'databaseURL', 'projectId', 'appId'];
 const missing = requiredConfig.filter(k => !firebaseConfig[k] || !String(firebaseConfig[k]).trim());
