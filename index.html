@@ -6,32 +6,15 @@
 <meta name="theme-color" content="#fff1f2" />
 <title>Svadba na prvý pohľad · Gymza tvorí 💍</title>
 
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
-<script>
-  tailwind.config = { theme: { extend: {
-    fontFamily: {
-      display: ['"Playfair Display"', 'Georgia', 'serif'],
-      sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-    },
-    keyframes: {
-      pop: { '0%': { transform: 'scale(.88)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
-      rise: { '0%': { transform: 'translateY(22px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-      beat: { '0%,100%': { transform: 'scale(1)' }, '15%': { transform: 'scale(1.06)' }, '30%': { transform: 'scale(1)' }, '45%': { transform: 'scale(1.04)' } },
-    },
-    animation: {
-      pop: 'pop .38s cubic-bezier(.34,1.56,.64,1) both',
-      rise: 'rise .5s ease-out both',
-      beat: 'beat 1.6s ease-in-out infinite',
-    },
-  } } };
-</script>
+<style>/* Tailwind 3.4.17 — vygenerované (bez CDN) */
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,system-ui,-apple-system,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.-bottom-28{bottom:-7rem}.-left-24{left:-6rem}.-right-28{right:-7rem}.-top-24{top:-6rem}.bottom-6{bottom:1.5rem}.left-1\/2{left:50%}.left-1\/4{left:25%}.left-3{left:.75rem}.top-0{top:0}.top-1\/2{top:50%}.top-1\/3{top:33.333333%}.top-20{top:5rem}.-z-10{z-index:-10}.-z-20{z-index:-20}.z-30{z-index:30}.z-50{z-index:50}.z-\[55\]{z-index:55}.z-\[56\]{z-index:56}.z-\[60\]{z-index:60}.mx-auto{margin-left:auto;margin-right:auto}.mb-1\.5{margin-bottom:.375rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.ml-3{margin-left:.75rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-14{height:3.5rem}.h-2{height:.5rem}.h-4{height:1rem}.h-44{height:11rem}.h-5{height:1.25rem}.h-72{height:18rem}.h-8{height:2rem}.h-80{height:20rem}.h-9{height:2.25rem}.h-full{height:100%}.min-h-0{min-height:0}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-14{width:3.5rem}.w-3\.5{width:.875rem}.w-44{width:11rem}.w-5{width:1.25rem}.w-72{width:18rem}.w-8{width:2rem}.w-80{width:20rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-\[45\%\]{max-width:45%}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.-translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%}.translate-y-3{--tw-translate-y:0.75rem}.rotate-180,.translate-y-3{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-180{--tw-rotate:180deg}.scale-\[1\.02\]{--tw-scale-x:1.02;--tw-scale-y:1.02}.scale-\[1\.02\],.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes beat{0%,to{transform:scale(1)}15%{transform:scale(1.06)}30%{transform:scale(1)}45%{transform:scale(1.04)}}.animate-beat{animation:beat 1.6s ease-in-out infinite}@keyframes pop{0%{transform:scale(.88);opacity:0}to{transform:scale(1);opacity:1}}.animate-pop{animation:pop .38s cubic-bezier(.34,1.56,.64,1) both}@keyframes rise{0%{transform:translateY(22px);opacity:0}to{transform:translateY(0);opacity:1}}.animate-rise{animation:rise .5s ease-out both}.resize-none{resize:none}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.space-y-0\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.125rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.125rem*var(--tw-space-y-reverse))}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-2\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.625rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.625rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.break-all{word-break:break-all}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-300{--tw-border-opacity:1;border-color:rgb(252 211 77/var(--tw-border-opacity,1))}.border-indigo-200{--tw-border-opacity:1;border-color:rgb(199 210 254/var(--tw-border-opacity,1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255/var(--tw-border-opacity,1))}.border-rose-100{--tw-border-opacity:1;border-color:rgb(255 228 230/var(--tw-border-opacity,1))}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211/var(--tw-border-opacity,1))}.border-rose-50{--tw-border-opacity:1;border-color:rgb(255 241 242/var(--tw-border-opacity,1))}.border-rose-500{--tw-border-opacity:1;border-color:rgb(244 63 94/var(--tw-border-opacity,1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.border-white\/70{border-color:hsla(0,0%,100%,.7)}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199/var(--tw-bg-opacity,1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245/var(--tw-bg-opacity,1))}.bg-indigo-50{--tw-bg-opacity:1;background-color:rgb(238 242 255/var(--tw-bg-opacity,1))}.bg-pink-200\/70{background-color:rgba(251,207,232,.7)}.bg-purple-100{--tw-bg-opacity:1;background-color:rgb(243 232 255/var(--tw-bg-opacity,1))}.bg-purple-200\/60{background-color:rgba(233,213,255,.6)}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255/var(--tw-bg-opacity,1))}.bg-purple-500{--tw-bg-opacity:1;background-color:rgb(168 85 247/var(--tw-bg-opacity,1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230/var(--tw-bg-opacity,1))}.bg-rose-200\/70{background-color:rgba(254,205,211,.7)}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242/var(--tw-bg-opacity,1))}.bg-rose-50\/50{background-color:rgba(255,241,242,.5)}.bg-rose-50\/60{background-color:rgba(255,241,242,.6)}.bg-rose-500{--tw-bg-opacity:1;background-color:rgb(244 63 94/var(--tw-bg-opacity,1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-900\/60{background-color:rgba(15,23,42,.6)}.bg-slate-900\/70{background-color:rgba(15,23,42,.7)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/20{background-color:hsla(0,0%,100%,.2)}.bg-white\/60{background-color:hsla(0,0%,100%,.6)}.bg-white\/80{background-color:hsla(0,0%,100%,.8)}.bg-white\/85{background-color:hsla(0,0%,100%,.85)}.bg-white\/90{background-color:hsla(0,0%,100%,.9)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-rose-400{--tw-gradient-from:#fb7185 var(--tw-gradient-from-position);--tw-gradient-to:rgba(251,113,133,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-rose-500{--tw-gradient-from:#f43f5e var(--tw-gradient-from-position);--tw-gradient-to:rgba(244,63,94,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-rose-600{--tw-gradient-from:#e11d48 var(--tw-gradient-from-position);--tw-gradient-to:rgba(225,29,72,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-pink-500{--tw-gradient-to:rgba(236,72,153,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#ec4899 var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-pink-500{--tw-gradient-to:#ec4899 var(--tw-gradient-to-position)}.to-purple-500{--tw-gradient-to:#a855f7 var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{-o-object-fit:cover;object-fit:cover}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-\[5px\]{padding:5px}.p-\[6px\]{padding:6px}.px-1\.5{padding-left:.375rem;padding-right:.375rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-16{padding-bottom:4rem}.pb-3{padding-bottom:.75rem}.pb-8{padding-bottom:2rem}.pl-9{padding-left:2.25rem}.pr-3{padding-right:.75rem}.pt-1\.5{padding-top:.375rem}.pt-2{padding-top:.5rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-display{font-family:Playfair Display,Georgia,serif}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.font-sans{font-family:Inter,system-ui,-apple-system,sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[15px\]{font-size:15px}.text-\[2\.6rem\]{font-size:2.6rem}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.05\]{line-height:1.05}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-\[\.15em\]{letter-spacing:.15em}.tracking-\[\.18em\]{letter-spacing:.18em}.tracking-\[\.22em\]{letter-spacing:.22em}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6/var(--tw-text-opacity,1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14/var(--tw-text-opacity,1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105/var(--tw-text-opacity,1))}.text-indigo-700{--tw-text-opacity:1;color:rgb(67 56 202/var(--tw-text-opacity,1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234/var(--tw-text-opacity,1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206/var(--tw-text-opacity,1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133/var(--tw-text-opacity,1))}.text-rose-500{--tw-text-opacity:1;color:rgb(244 63 94/var(--tw-text-opacity,1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72/var(--tw-text-opacity,1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-50{opacity:.5}.opacity-70{opacity:.7}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-md,.shadow-sm{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-rose-200\/50{--tw-shadow-color:rgba(254,205,211,.5);--tw-shadow:var(--tw-shadow-colored)}.shadow-rose-200\/60{--tw-shadow-color:rgba(254,205,211,.6);--tw-shadow:var(--tw-shadow-colored)}.shadow-rose-200\/70{--tw-shadow-color:rgba(254,205,211,.7);--tw-shadow:var(--tw-shadow-colored)}.shadow-rose-300\/50{--tw-shadow-color:rgba(253,164,175,.5);--tw-shadow:var(--tw-shadow-colored)}.shadow-rose-300\/60{--tw-shadow-color:rgba(253,164,175,.6);--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline:2px solid transparent;outline-offset:2px}.outline{outline-style:solid}.ring{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring,.ring-2{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-4{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-rose-300{--tw-ring-opacity:1;--tw-ring-color:rgb(253 164 175/var(--tw-ring-opacity,1))}.ring-white{--tw-ring-opacity:1;--tw-ring-color:rgb(255 255 255/var(--tw-ring-opacity,1))}.blur-3xl{--tw-blur:blur(64px)}.blur-3xl,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px)}.backdrop-blur,.backdrop-blur-md{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.duration-300{transition-duration:.3s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}.selection\:bg-rose-200 ::-moz-selection{--tw-bg-opacity:1;background-color:rgb(254 205 211/var(--tw-bg-opacity,1))}.selection\:bg-rose-200 ::selection{--tw-bg-opacity:1;background-color:rgb(254 205 211/var(--tw-bg-opacity,1))}.selection\:bg-rose-200::-moz-selection{--tw-bg-opacity:1;background-color:rgb(254 205 211/var(--tw-bg-opacity,1))}.selection\:bg-rose-200::selection{--tw-bg-opacity:1;background-color:rgb(254 205 211/var(--tw-bg-opacity,1))}.placeholder\:text-slate-400::-moz-placeholder{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.placeholder\:text-slate-400::placeholder{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.hover\:border-rose-300:hover{--tw-border-opacity:1;border-color:rgb(253 164 175/var(--tw-border-opacity,1))}.hover\:bg-white\/30:hover{background-color:hsla(0,0%,100%,.3)}.focus\:border-rose-400:focus{--tw-border-opacity:1;border-color:rgb(251 113 133/var(--tw-border-opacity,1))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus\:ring-2:focus,.focus\:ring-4:focus{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-4:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus\:ring-rose-200:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(254 205 211/var(--tw-ring-opacity,1))}.focus\:ring-rose-300:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(253 164 175/var(--tw-ring-opacity,1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95}.active\:scale-95:active,.active\:scale-\[\.98\]:active{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-\[\.98\]:active{--tw-scale-x:.98;--tw-scale-y:.98}.active\:bg-rose-50\/60:active{background-color:rgba(255,241,242,.6)}</style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.js" integrity="sha384-6g9ac3IRHxfAehR0tjADjZf1ZOKuyD3gHqFYbVVRoijMLYCF7mRPYafPn+znRCBC" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js" integrity="sha384-3zSEDfvllQohrq0PHL1fOXJuC/jSOO34H46t6UQfobFOmxE5BpjjaIJY5F2/bMnU" crossorigin="anonymous"></script>
 
 <style>
   html { -webkit-text-size-adjust: 100%; }
@@ -46,6 +29,11 @@
   .no-scrollbar::-webkit-scrollbar-thumb { background: #fecdd3; border-radius: 99px; }
   .no-scrollbar::-webkit-scrollbar-track { background: transparent; }
   input, button, select, textarea { font-family: inherit; }
+  header.sticky { padding-top: env(safe-area-inset-top, 0px); }
+  button:focus-visible { outline: 2px solid #e11d48; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
 </style>
 </head>
 
@@ -83,7 +71,7 @@
         <span class="text-xs">✨</span> Gymza tvorí · Školská akcia
       </div>
       <h1 class="font-display text-[2.6rem] leading-[1.05] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-500 to-purple-500">Nájdite svojho<br/>ženícha</h1>
-      <p class="mt-3 text-slate-600 text-sm leading-relaxed px-2">Odpovedzte na 8 otázok a zistite, ktorý chalan z triedy sa k vám hodí najviac. 💘</p>
+      <p class="mt-3 text-slate-600 text-sm leading-relaxed px-2">Odpovedzte na <span id="q-count">8</span> otázok a zistite, ktorý chalan z triedy sa k vám hodí najviac. 💘</p>
     </div>
 
     <div class="mt-6 bg-white/85 backdrop-blur rounded-3xl p-5 shadow-xl shadow-rose-200/50 border border-white animate-rise" style="animation-delay:.1s">
@@ -143,7 +131,7 @@
         <p id="result-reason" class="text-sm text-slate-600 leading-relaxed"></p>
         <p id="result-hits" class="mt-2.5 text-[11px] text-slate-400"></p>
       </div>
-      <div class="mt-5">
+      <div id="runners-wrap" class="mt-5">
         <p class="text-[10px] font-bold uppercase tracking-[.18em] text-slate-400 mb-2 text-left">Ďalší v poradí</p>
         <div id="result-runners" class="space-y-2"></div>
       </div>
@@ -153,12 +141,12 @@
 </main>
 
 <footer class="max-w-md mx-auto px-4 pb-8 text-center space-y-1">
-  <p class="text-[10px] text-slate-400">v3.1.0 · október 2026</p>
+  <p class="text-[10px] text-slate-400">v3.2.0 · október 2026</p>
   <p class="text-[10px] font-semibold tracking-[.15em] uppercase text-rose-400">Gymza tvorí</p>
 </footer>
 
 <!-- QR modal -->
-<div id="modal-qr" class="fixed inset-0 z-50 hidden">
+<div id="modal-qr" class="fixed inset-0 z-[56] hidden">
   <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" data-close-qr></div>
   <div class="relative h-full max-w-md mx-auto p-4 flex items-center justify-center">
     <div class="bg-white rounded-3xl p-6 shadow-2xl text-center w-full animate-pop">
@@ -182,7 +170,7 @@
         <h3 class="font-display text-xl font-bold text-slate-800">Admin prihlásenie</h3>
         <p class="text-xs text-slate-500 mt-1">Zadajte email a heslo</p>
       </div>
-      <input id="login-email" type="email" autocomplete="username" placeholder="admin@svadba.local"
+      <input id="login-email" type="email" autocomplete="username" placeholder="E-mail"
         class="w-full rounded-xl border border-rose-200 bg-rose-50/60 px-4 py-3 text-sm outline-none focus:ring-4 focus:ring-rose-200 focus:border-rose-400 transition mb-2" />
       <input id="login-password" type="password" autocomplete="current-password" placeholder="Heslo"
         class="w-full rounded-xl border border-rose-200 bg-rose-50/60 px-4 py-3 text-sm outline-none focus:ring-4 focus:ring-rose-200 focus:border-rose-400 transition" />
@@ -286,9 +274,8 @@
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getDatabase, ref, set, get, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-//import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app-check.js";
-import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app-check.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider, ReCaptchaV3Provider, getToken } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app-check.js";
 
 // !!! VLOŽTE SVOJ FIREBASE CONFIG !!!
 const firebaseConfig = {
@@ -304,7 +291,7 @@ const firebaseConfig = {
 
 // !!! VLOŽTE SVOJ RECAPTCHA SITE KEY !!!
 const RECAPTCHA_SITE_KEY = '6LfePQUuAAAAAKHtVTKT5JLv0ebtbIsdyD6HYvml';
-//const RECAPTCHA_SITE_KEY = '';
+const RECAPTCHA_TYPE = 'enterprise'; // 'enterprise' = kľúč z reCAPTCHA Enterprise, 'v3' = klasický reCAPTCHA v3 kľúč
 
 const requiredConfig = ['apiKey', 'authDomain', 'databaseURL', 'projectId', 'appId'];
 const missing = requiredConfig.filter(k => !firebaseConfig[k] || !String(firebaseConfig[k]).trim());
@@ -325,26 +312,24 @@ if (isConfigured) {
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
           self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
         }
-//        appCheck = initializeAppCheck(app, {
-//          provider: new ReCaptchaV3Provider(RECAPTCHA_SITE_KEY),
-//          isTokenAutoRefreshEnabled: true,
-//        });
-
-        appCheck = initializeAppCheck(app, {
-          provider: new ReCaptchaEnterpriseProvider(RECAPTCHA_SITE_KEY),
-          isTokenAutoRefreshEnabled: true,
-        });
-
-        console.log('[admin] 🔐 App Check OK');
+        const provider = RECAPTCHA_TYPE === 'v3'
+          ? new ReCaptchaV3Provider(RECAPTCHA_SITE_KEY)
+          : new ReCaptchaEnterpriseProvider(RECAPTCHA_SITE_KEY);
+        appCheck = initializeAppCheck(app, { provider, isTokenAutoRefreshEnabled: true });
+        // initializeAppCheck len zaregistruje provider — skutočný test je až získanie tokenu
+        getToken(appCheck, false)
+          .then(() => console.log('[app] 🔐 App Check token OK'))
+          .catch((e) => console.warn('[app] ⚠️ App Check token zlyhal — skontrolujte RECAPTCHA_TYPE, kľúč a povolenú doménu:', e));
       } catch (e) {
-        console.warn('[admin] App Check failed:', e);
+        console.warn('[app] App Check failed:', e);
       }
     } else {
-      console.warn('[admin] ⚠️ RECAPTCHA_SITE_KEY chýba');
+      console.warn('[app] ⚠️ RECAPTCHA_SITE_KEY chýba');
     }
 
     const db = getDatabase(app, firebaseConfig.databaseURL);
     auth = getAuth(app);
+    setPersistence(auth, browserSessionPersistence).catch((e) => console.warn('Persistence:', e)); // admin ostane prihlásený len v danej karte
     firebase = { db, ref, set, get, onValue, remove, auth, signInWithEmailAndPassword, onAuthStateChanged, signOut };
     console.log('[admin] 🔥 Firebase OK, projectId =', firebaseConfig.projectId);
   } catch (e) {
@@ -372,7 +357,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready', {
      HLAVNÁ LOGIKA
      ===================================================================== -->
 <script>
-console.log('[admin] v3.1.0 loaded');
+console.log('[admin] v3.2.0 loaded');
 
 /* =====================================================================
    1) KONFIGURÁCIA
@@ -425,6 +410,21 @@ const clone = (o) => JSON.parse(JSON.stringify(o));
 const genId = () => 'b_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8);
 const avatarFallback = (name) => 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name || '?') + '&background=fecdd3&color=9f1239&size=400&bold=true';
 
+// povolené fotky: https URL, relatívna cesta (fotky/jakub.jpg) alebo vložený obrázok (data:image)
+const safePhoto = (u) => {
+  const v = String(u || '').trim();
+  if (/^https:\/\/[^\s"'<>]+$/i.test(v) && v.length <= 500) return v;
+  if (/^(?![a-z][a-z0-9+.-]*:)(?!\/\/)[\w\-./%]+$/i.test(v) && v.length <= 200) return v;
+  if (/^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+\/=]+$/.test(v) && v.length <= 500000) return v;
+  return '';
+};
+async function copyCode(code) {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(code); toast('Kód skopírovaný ✓'); return; }
+  } catch (e) {}
+  prompt('Kód (skopírujte ručne):', code);
+}
+
 function toB64Url(str) {
   try {
     const bytes = new TextEncoder().encode(str);
@@ -447,8 +447,7 @@ function decodeBoy(code) {
   try {
     const arr = JSON.parse(fromB64Url(code));
     if (!Array.isArray(arr) || arr.length < 5) return null;
-    const photoRaw = String(arr[3] || '');
-    const photo = /^data:image\//.test(photoRaw) && photoRaw.length > 300000 ? '' : photoRaw;
+    const photo = safePhoto(arr[3]);
     return {
       id: genId(),
       name: String(arr[0] || 'Chalan').slice(0, 30),
@@ -496,7 +495,9 @@ let lastCloudJson = '';
 let lastResultsJson = '';
 let resultsReady = false;
 let clearingResults = false;
-let startupSyncPending = true;
+let unsubResults = null;
+let resultsError = false;
+let adminDirty = false;
 let currentAdminUser = null;
 
 /* Lokálna cache */
@@ -507,16 +508,8 @@ function loadLocalCache() {
 function saveLocalCache(arr) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch (e) {}
 }
-function loadResultsLocalCache() {
-  try { const raw = localStorage.getItem(STORAGE_RESULTS_KEY); return raw ? JSON.parse(raw).map(normalizeResult) : []; }
-  catch (e) { return []; }
-}
-function saveResultsLocalCache() {
-  try { localStorage.setItem(STORAGE_RESULTS_KEY, JSON.stringify(results)); } catch (e) {}
-}
 function normalizeBoy(b) {
-  const rawPhoto = String(b.photo || '');
-  const photo = /^data:image\//.test(rawPhoto) && rawPhoto.length > 500000 ? '' : rawPhoto;
+  const photo = safePhoto(b.photo);
   return {
     id: String(b.id || '').replace(/[^\w-]/g, '').slice(0, 40) || genId(),
     sourceId: b.sourceId ? String(b.sourceId).slice(0, 60) : undefined,
@@ -553,7 +546,7 @@ function normalizeResult(r) {
 }
 
 boys = loadLocalCache();
-results = loadResultsLocalCache();
+try { localStorage.removeItem(STORAGE_RESULTS_KEY); } catch (e) {} // výsledky (mená učiteliek) sa už neukladajú v prehliadači
 
 /* =====================================================================
    4) ZÁPIS DO CLOUDU (len admin)
@@ -562,7 +555,7 @@ let pendingWrite = null;
 let pendingWriteResolvers = [];
 function saveBoys() {
   saveLocalCache(boys);
-  if (!window.__firebase) return Promise.resolve('local');
+  if (!window.__firebase || !currentAdminUser) return Promise.resolve('local');
 
   if (pendingWrite) clearTimeout(pendingWrite);
   const result = new Promise(resolve => pendingWriteResolvers.push(resolve));
@@ -579,8 +572,11 @@ function saveBoys() {
         if (b.codeWithPhoto) o.codeWithPhoto = b.codeWithPhoto;
         return o;
       });
-      await set(ref(db, CLOUD_PATH), sanitized);
-      lastCloudJson = JSON.stringify(sanitized.map(normalizeBoy));
+      const prevJson = lastCloudJson, prevDirty = adminDirty;
+      lastCloudJson = JSON.stringify(sanitized.map(normalizeBoy)); // ešte pred zápisom: lokálny listener sa spúšťa okamžite
+      adminDirty = false;
+      try { await set(ref(db, CLOUD_PATH), sanitized); }
+      catch (err) { lastCloudJson = prevJson; adminDirty = prevDirty; throw err; }
       cloudOnline = true;
       updateCloudStatus('online');
       resolvers.forEach(r => r('cloud'));
@@ -614,7 +610,8 @@ function listenToCloud() {
     const data = snapshot.val();
     cloudReady = true;
     cloudOnline = true;
-    if (data == null && boys.length > 0 && !lastCloudJson) {
+    // prvé naplnenie prázdnej databázy z lokálnej cache smie spraviť iba prihlásený admin
+    if (data == null && boys.length > 0 && !lastCloudJson && currentAdminUser) {
       lastCloudJson = '[]';
       saveBoys();
       updateCloudStatus('online');
@@ -623,6 +620,11 @@ function listenToCloud() {
     const remote = (Array.isArray(data) ? data.filter(Boolean) : data ? Object.values(data).filter(Boolean) : []).map(normalizeBoy);
     const remoteJson = JSON.stringify(remote);
     if (remoteJson !== lastCloudJson) {
+      if (adminDirty && currentAdminUser) { // neprepíš neuložené úpravy admina
+        toast('V cloude sú novšie zmeny — uložte, alebo načítajte stránku znova.');
+        updateCloudStatus('online');
+        return;
+      }
       lastCloudJson = remoteJson;
       boys = remote;
       saveLocalCache(boys);
@@ -636,38 +638,30 @@ function listenToCloud() {
   });
 }
 
+// Výsledky sa načítavajú len po prihlásení admina (Rules ich pustia čítať iba jemu)
 function listenToResults() {
-  if (!window.__firebase) { resultsReady = true; updateResultsStatus(); return; }
+  if (!window.__firebase || !currentAdminUser || unsubResults) return;
   const { db, ref, onValue } = window.__firebase;
-  onValue(ref(db, CLOUD_RESULTS_PATH), (snapshot) => {
-    const data = snapshot.val();
-    resultsReady = true;
+  resultsReady = false; resultsError = false; updateResultsStatus();
+  unsubResults = onValue(ref(db, CLOUD_RESULTS_PATH), (snapshot) => {
+    resultsReady = true; resultsError = false;
     if (clearingResults) return;
-    if (data == null) {
-      if (startupSyncPending) {
-        startupSyncPending = false;
-        if (results.length > 0) results.forEach(r => saveResultToCloud(r));
-      } else if (results.length > 0) {
-        results = [];
-        saveResultsLocalCache();
-        updateResultsStatus();
-        if (!$('modal-results').classList.contains('hidden')) renderResults();
-      }
-      updateResultsStatus();
-      return;
-    }
-    startupSyncPending = false;
-    const remote = (Array.isArray(data) ? data.filter(Boolean) : Object.values(data).filter(Boolean))
+    const data = snapshot.val();
+    const remote = data == null ? [] : (Array.isArray(data) ? data.filter(Boolean) : Object.values(data).filter(Boolean))
       .map(normalizeResult).sort((a, b) => b.timestamp - a.timestamp);
     const remoteJson = JSON.stringify(remote);
-    if (remoteJson !== lastResultsJson) {
-      lastResultsJson = remoteJson;
-      results = remote;
-      saveResultsLocalCache();
-      updateResultsStatus();
-      if (!$('modal-results').classList.contains('hidden')) renderResults();
-    }
-  }, (error) => { console.error('Results listen error:', error); });
+    if (remoteJson !== lastResultsJson) { lastResultsJson = remoteJson; results = remote; }
+    updateResultsStatus();
+    if (!$('modal-results').classList.contains('hidden')) renderResults();
+  }, (error) => {
+    console.error('Results listen error:', error);
+    unsubResults = null; resultsReady = false; resultsError = true; updateResultsStatus();
+  });
+}
+function stopResults() {
+  if (unsubResults) { unsubResults(); unsubResults = null; }
+  results = []; lastResultsJson = ''; resultsReady = false; resultsError = false;
+  updateResultsStatus();
 }
 
 function refreshUIFromBoys() {
@@ -686,27 +680,21 @@ function updateCloudStatus(state) {
 }
 
 function updateResultsStatus() {
-  const el = $('results-status'); if (!el) return;
-  if (!window.__firebaseConfigured) { el.textContent = 'offline'; el.className = 'font-semibold text-amber-600'; return; }
-  if (!window.__firebase) { el.textContent = 'offline'; el.className = 'font-semibold text-rose-600'; return; }
-  if (!resultsReady) { el.textContent = 'pripájam…'; el.className = 'font-semibold text-slate-400'; return; }
-  el.textContent = '✓ online'; el.className = 'font-semibold text-emerald-600';
   const badge = $('results-badge');
   if (badge) {
     if (results.length > 0) { badge.textContent = results.length; badge.classList.remove('hidden'); }
     else badge.classList.add('hidden');
   }
+  const el = $('results-status'); if (!el) return;
+  if (!window.__firebaseConfigured || !window.__firebase) { el.textContent = 'offline'; el.className = 'font-semibold text-amber-600'; return; }
+  if (resultsError) { el.textContent = 'chyba (skontrolujte Rules)'; el.className = 'font-semibold text-rose-600'; return; }
+  if (!resultsReady) { el.textContent = 'pripájam…'; el.className = 'font-semibold text-slate-400'; return; }
+  el.textContent = '✓ online'; el.className = 'font-semibold text-emerald-600';
 }
 
 window.addEventListener('firebase-ready', (e) => {
-  const { ok, configured } = e.detail || {};
-  if (ok) {
-    listenToCloud();
-    listenToResults();
-  } else {
-    updateCloudStatus();
-    updateResultsStatus();
-  }
+  if (e.detail && e.detail.ok) listenToCloud();
+  else { updateCloudStatus(); updateResultsStatus(); }
 });
 
 /* =====================================================================
@@ -734,7 +722,7 @@ $('teacher-name').addEventListener('keydown', e => { if (e.key === 'Enter') star
 function startQuiz() {
   const name = $('teacher-name').value.trim();
   if (!name) { $('teacher-name').focus(); $('teacher-name').classList.add('ring-4', 'ring-rose-300'); setTimeout(() => $('teacher-name').classList.remove('ring-4', 'ring-rose-300'), 900); return; }
-  if (!boys.length) { toast('Ešte sa načítavajú chalani… skúste o chvíľu 😊'); return; }
+  if (!boys.length) { toast(!navigator.onLine ? 'Ste offline — skontrolujte pripojenie 📶' : cloudReady ? 'Zatiaľ nie sú pridaní žiadni chalani 😅' : 'Načítavam chalanov zo siete… skúste o chvíľu 😊'); return; }
   teacherState = { name, answers: [], current: 0 };
   $('quiz-name-label').textContent = name;
   showScreen('screen-quiz');
@@ -816,6 +804,7 @@ function showResult() {
       '<span class="text-sm font-extrabold text-rose-500">' + r.percent + '%</span></div>';
   }).join('');
   $('result-runners').querySelectorAll('img[data-fallback]').forEach(img => { img.onerror = () => { img.onerror = null; img.src = img.dataset.fallback; }; });
+  $('runners-wrap').classList.toggle('hidden', ranked.length < 2);
   showScreen('screen-result');
   animateRing(winner.percent);
   celebrate();
@@ -837,7 +826,7 @@ function animateRing(targetPercent) {
   requestAnimationFrame(frame);
 }
 function celebrate() {
-  if (typeof confetti !== 'function') return;
+  if (typeof confetti !== 'function' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const colors = ['#e11d48','#f43f5e','#ec4899','#a855f7','#fbbf24','#ffffff'];
   const end = Date.now() + 2400;
   (function loop() {
@@ -857,13 +846,10 @@ async function recordResult(winner, ranked) {
     winner: { name: winner.boy.name, nickname: winner.boy.nickname, percent: winner.percent, hits: winner.hits },
     top3: ranked.slice(0, 3).map(r => ({ name: r.boy.name, percent: r.percent })),
   };
-  results.unshift(result);
-  saveResultsLocalCache();
-  updateResultsStatus();
-  if (window.__firebase) {
-    const ok = await saveResultToCloud(result);
-    if (!ok) console.warn('Výsledok nebol uložený do cloudu.');
-  }
+  // výsledok ide len do cloudu — v prehliadači učiteľky sa neukladá
+  if (!window.__firebase) return;
+  const ok = await saveResultToCloud(result);
+  if (!ok) console.warn('Výsledok nebol uložený do cloudu.');
 }
 $('btn-restart').addEventListener('click', () => {
   teacherState = { name: '', answers: [], current: 0 };
@@ -880,6 +866,7 @@ function renderQR(url, title, subtitle) {
   $('qr-title').textContent = title || 'QR kód pre akciu';
   $('qr-subtitle').textContent = subtitle || 'Nech si ho učiteľky naskenujú mobilom.';
   $('qr-url').textContent = url;
+  if (/^(file:|https?:\/\/(localhost|127\.|192\.168\.))/i.test(url)) toast('Pozor: QR vedie na lokálnu adresu — učiteľky ho nenaskenujú. Najprv nahrajte stránku na hosting.');
   if (typeof QRCode !== 'undefined') {
     try { new QRCode(box, { text: url, width: 210, height: 210, colorDark: '#1e293b', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.H }); return; } catch (e) {}
   }
@@ -942,10 +929,12 @@ window.addEventListener('firebase-ready', (e) => {
   const { auth, onAuthStateChanged } = window.__firebase;
   onAuthStateChanged(auth, (user) => {
     currentAdminUser = user;
-    console.log('[admin] auth state:', user ? user.email : 'odhlásený');
     if (user) {
       $('modal-login').classList.add('hidden');
-      openAdminPanel();
+      listenToResults();
+    } else {
+      stopResults();
+      ['modal-admin', 'modal-results'].forEach(id => $(id).classList.add('hidden'));
     }
   });
 });
@@ -955,6 +944,9 @@ window.addEventListener('firebase-ready', (e) => {
    ===================================================================== */
 const expandedIds = new Set();
 const findBoyById = (id) => boys.find(b => b.id === id);
+const closeAdmin = () => $('modal-admin').classList.add('hidden');
+$('btn-admin-close').addEventListener('click', closeAdmin);
+document.querySelectorAll('[data-close-admin]').forEach(el => el.addEventListener('click', closeAdmin));
 
 async function openAdminPanel() {
   renderAdmin();
@@ -983,9 +975,9 @@ function renderBoyCard(b) {
       '<div class="flex-1 min-w-0"><p class="text-sm font-bold text-slate-800 truncate">' + esc(b.name || 'Bez mena') + '</p><p class="text-[11px] text-slate-400 truncate">' + esc(b.nickname || 'bez prezývky') + '</p></div>' +
       '<span class="chevron text-slate-400 text-xs transition-transform duration-200 ' + (isOpen ? 'rotate-180' : '') + '">▼</span></button>' +
     '<div class="px-3 pb-3 space-y-2 border-t border-rose-50 ' + (isOpen ? '' : 'hidden') + '" data-details="' + b.id + '">' +
-      '<div class="grid grid-cols-2 gap-2 pt-2"><input data-id="' + b.id + '" data-f="name" value="' + esc(b.name) + '" placeholder="Meno" class="' + inputCls + '" /><input data-id="' + b.id + '" data-f="nickname" value="' + esc(b.nickname) + '" placeholder="Prezývka" class="' + inputCls + '" /></div>' +
-      '<input data-id="' + b.id + '" data-f="desc" value="' + esc(b.desc) + '" placeholder="Popis" class="' + inputCls + '" />' +
-      '<input data-id="' + b.id + '" data-f="photo" value="' + esc(b.photo && !b.photo.startsWith('data:') ? b.photo : '') + '" placeholder="URL fotky (nepovinné)" class="' + inputCls + '" />' +
+      '<div class="grid grid-cols-2 gap-2 pt-2"><input data-id="' + b.id + '" data-f="name" maxlength="30" value="' + esc(b.name) + '" placeholder="Meno" class="' + inputCls + '" /><input data-id="' + b.id + '" data-f="nickname" maxlength="20" value="' + esc(b.nickname) + '" placeholder="Prezývka" class="' + inputCls + '" /></div>' +
+      '<input data-id="' + b.id + '" data-f="desc" maxlength="200" value="' + esc(b.desc) + '" placeholder="Popis" class="' + inputCls + '" />' +
+      '<input data-id="' + b.id + '" data-f="photo" maxlength="500" value="' + esc(b.photo && !b.photo.startsWith('data:') ? b.photo : '') + '" placeholder="https://… URL fotky (nepovinné)" class="' + inputCls + '" />' +
       '<div class="pt-2 border-t border-rose-100"><p class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">Odpovede — kliknite na A/B</p><div class="space-y-0.5">' + answerRows + '</div></div>' +
       '<div class="flex gap-2 pt-2"><button data-share="' + b.id + '" class="flex-1 rounded-lg bg-rose-50 border border-rose-200 text-rose-600 text-[11px] font-bold py-2 active:scale-[.98] transition">📋 Kód</button><button data-dup="' + b.id + '" class="flex-1 rounded-lg bg-rose-50 border border-rose-200 text-rose-600 text-[11px] font-bold py-2 active:scale-[.98] transition">⧉ Kopírovať</button><button data-del="' + b.id + '" class="flex-1 rounded-lg bg-white border border-rose-200 text-rose-500 text-[11px] font-bold py-2 active:scale-[.98] transition">🗑 Zmazať</button></div>' +
     '</div></div>';
@@ -1016,7 +1008,8 @@ $('admin-search').addEventListener('input', applySearch);
 $('admin-list').addEventListener('input', (e) => {
   const inp = e.target.closest('[data-f]'); if (!inp) return;
   const boy = findBoyById(inp.dataset.id); if (!boy) return;
-  boy[inp.dataset.f] = inp.value;
+  boy[inp.dataset.f] = inp.dataset.f === 'photo' ? safePhoto(inp.value) : inp.value;
+  adminDirty = true;
   if (inp.dataset.f === 'photo' || inp.dataset.f === 'name') {
     const card = inp.closest('.boy-card');
     const thumb = card?.querySelector('.boy-thumb');
@@ -1041,7 +1034,7 @@ $('admin-list').addEventListener('click', (e) => {
     return;
   }
   const share = e.target.closest('[data-share]');
-  if (share) { const boy = findBoyById(share.dataset.share); if (boy) { const code = encodeBoy(boy); navigator.clipboard?.writeText(code).then(() => toast('Kód skopírovaný ✓')).catch(() => prompt('Kód:', code)); } return; }
+  if (share) { const boy = findBoyById(share.dataset.share); if (boy) copyCode(encodeBoy(boy)); return; }
   const dup = e.target.closest('[data-dup]'); if (dup) { duplicateBoy(dup.dataset.dup); return; }
   const del = e.target.closest('[data-del]'); if (del) { deleteBoy(del.dataset.del); return; }
   const choice = e.target.closest('[data-choice][data-q]');
@@ -1049,7 +1042,7 @@ $('admin-list').addEventListener('click', (e) => {
     const boy = findBoyById(choice.dataset.id); if (!boy) return;
     const q = Number(choice.dataset.q);
     const val = choice.dataset.choice === 'B' ? 'B' : 'A';
-    boy.answers[q] = val;
+    boy.answers[q] = val; adminDirty = true;
     const row = choice.closest('.answer-buttons');
     if (row) row.querySelectorAll('[data-choice]').forEach(btn => {
       const on = btn.dataset.choice === val;
@@ -1062,14 +1055,14 @@ $('admin-list').addEventListener('click', (e) => {
 function addBoy() {
   $('admin-search').value = '';
   const nb = { id: genId(), name: 'Nový chalan', nickname: '', desc: '', photo: '', answers: Array(QUESTIONS.length).fill('A') };
-  boys.push(nb); expandedIds.add(nb.id); renderAdmin();
+  boys.push(nb); adminDirty = true; expandedIds.add(nb.id); renderAdmin();
   setTimeout(() => document.querySelector('[data-id="' + nb.id + '"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
 }
 function duplicateBoy(id) {
   const idx = boys.findIndex(b => b.id === id); if (idx < 0) return;
   $('admin-search').value = '';
   const copy = clone(boys[idx]); copy.id = genId(); copy.name += ' (kópia)';
-  boys.splice(idx + 1, 0, copy); expandedIds.add(copy.id); renderAdmin();
+  boys.splice(idx + 1, 0, copy); adminDirty = true; expandedIds.add(copy.id); renderAdmin();
   setTimeout(() => document.querySelector('[data-id="' + copy.id + '"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
 }
 function deleteBoy(id) {
@@ -1115,7 +1108,7 @@ $('import-file').addEventListener('change', (e) => {
       const old = clone(boys);
       data.filter(Boolean).forEach(b => boys.push({ ...normalizeBoy(b), id: genId() }));
       expandedIds.clear(); renderAdmin(); saveBoys();
-      showUndoToast('Importovaných ' + data.length, () => { boys = old; renderAdmin(); saveBoys(); });
+      showUndoToast('Importovaných ' + data.filter(Boolean).length, () => { boys = old; renderAdmin(); saveBoys(); });
     } catch (err) { toast('Chyba: ' + err.message); }
   };
   reader.readAsText(file); e.target.value = '';
@@ -1168,21 +1161,17 @@ $('btn-results-export').addEventListener('click', () => {
 });
 $('btn-results-clear').addEventListener('click', async () => {
   if (!results.length) { toast('Žiadne výsledky'); return; }
-  if (!confirm('Naozaj vymazať všetky výsledky?')) return;
+  if (!confirm('Naozaj vymazať všetky výsledky? Túto akciu nejde vrátiť.')) return;
+  if (!window.__firebase) { toast('Cloud nie je dostupný'); return; }
   clearingResults = true;
-  const prev = clone(results);
-  results = []; saveResultsLocalCache(); updateResultsStatus(); renderResults();
   try {
-    if (window.__firebase) {
-      const { db, ref, remove } = window.__firebase;
-      await remove(ref(db, CLOUD_RESULTS_PATH));
-      lastResultsJson = '';
-      toast('Výsledky vymazané ✅');
-    } else { toast('Lokálne vymazané ✅'); }
+    const { db, ref, remove } = window.__firebase;
+    await remove(ref(db, CLOUD_RESULTS_PATH));
+    results = []; lastResultsJson = '[]'; updateResultsStatus(); renderResults();
+    toast('Výsledky vymazané ✅');
   } catch (e) {
     console.error(e);
-    results = prev; saveResultsLocalCache(); updateResultsStatus(); renderResults();
-    toast('Cloud zlyhal — obnovené 😕');
+    toast('Mazanie zlyhalo 😕');
   } finally { clearingResults = false; }
 });
 
@@ -1193,12 +1182,25 @@ window.addEventListener('load', () => {
   updateCloudStatus();
   updateResultsStatus();
   $('admin-count').textContent = boys.length;
-  if (!window.__firebaseConfigured) {
+  // module sa nespustil vôbec (blokovaná sieť / chyba importu) vs. chýbajúca konfigurácia
+  const warnMsg = window.__firebaseConfigured === undefined
+    ? '⚠️ Nepodarilo sa načítať Firebase (internet alebo blokovaná sieť) — aplikácia beží offline.'
+    : (!window.__firebaseConfigured ? '⚠️ Firebase nie je nakonfigurovaný — aplikácia je v offline režime.' : '');
+  if (warnMsg) {
     const warn = document.createElement('div');
     warn.className = 'fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-amber-100 border border-amber-300 text-amber-800 text-xs font-semibold px-4 py-2 rounded-xl shadow-lg';
-    warn.textContent = '⚠️ Firebase nie je nakonfigurovaný — aplikácia je v offline režime.';
+    warn.textContent = warnMsg;
     document.body.appendChild(warn);
     setTimeout(() => warn.remove(), 8000);
+  }
+});
+
+$('q-count').textContent = QUESTIONS.length;
+document.querySelectorAll('[id^="modal-"]').forEach(m => { m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); });
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  for (const id of ['modal-qr', 'modal-codes', 'modal-results', 'modal-login', 'modal-admin']) {
+    const m = $(id); if (m && !m.classList.contains('hidden')) { m.classList.add('hidden'); break; }
   }
 });
 </script>
