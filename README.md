@@ -19,6 +19,5 @@ Projekt vznikol pre školskú akciu **"Gymza tvorí"** pre našu triedu **4.B** 
 - 💘 Matchmaking algoritmus s percentuálnou zhodou
 - 🎉 Animácie, konfety, romantický dizajn
 - 🔐 Firebase Authentication pre admina
-- 🛡️ App Check s reCAPTCHA Enterprise proti botom
 - ☁️ Real-time synchronizácia zoznamu chalanov a výsledkov
 - 📥 Import/Export JSON pre zálohu
