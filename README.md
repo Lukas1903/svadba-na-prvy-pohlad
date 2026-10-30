@@ -1,6 +1,6 @@
 # 💍 Svadba na prvý pohľad · Gymza tvorí
 
-Školská zoznamovacia hra pre učiteľky. Učiteľka odpovie na 8 jednoduchých otázok a systém jej vypočíta, ktorý chalan z triedy sa k nej hodí najviac.
+Školská zoznamovacia hra pre učiteľky (a vlastne všetkých). Učiteľka odpovie na 8 jednoduchých otázok a systém jej vypočíta, ktorý chalan z triedy sa k nej hodí najviac.
 
 ![Verzia](https://img.shields.io/badge/verzia-3.2.0-rose)
 ![Firebase](https://img.shields.io/badge/Firebase-10.12.2-orange)
@@ -22,7 +22,3 @@ Projekt vznikol pre školskú akciu **"Gymza tvorí"**. Ide o jednoduchú static
 - 🛡️ App Check s reCAPTCHA Enterprise proti botom
 - ☁️ Real-time synchronizácia zoznamu chalanov a výsledkov
 - 📥 Import/Export JSON pre zálohu
-
----
-
-## 📁 Štruktúra projektu
