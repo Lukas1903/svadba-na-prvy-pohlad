@@ -15,9 +15,8 @@ Projekt vznikol pre školskú akciu **"Gymza tvorí"** pre našu triedu **4.B** 
 
 **Hlavné vlastnosti:**
 - 📱 Plne responzívny dizajn (mobile-first)
-- 🎯 8 otázok typu A/B pre učiteľky
+- 🎯 8 otázok typu A/B
 - 💘 Matchmaking algoritmus s percentuálnou zhodou
 - 🎉 Animácie, konfety, romantický dizajn
-- 🔐 Firebase Authentication pre admina
 - ☁️ Real-time synchronizácia zoznamu chalanov a výsledkov
 - 📥 Import/Export JSON pre zálohu
