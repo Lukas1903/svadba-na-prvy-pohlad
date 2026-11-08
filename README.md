@@ -2,7 +2,7 @@
 
 Školská zoznamovacia hra pre učiteľky (a vlastne všetkých). Učiteľka odpovie na 8 jednoduchých otázok a systém jej vypočíta, ktorý chalan z triedy sa k nej hodí najviac.
 
-![Verzia](https://img.shields.io/badge/verzia-3.2.0-rose)
+![Verzia](https://img.shields.io/badge/verzia-3.3.1-rose)
 ![Firebase](https://img.shields.io/badge/Firebase-10.12.2-orange)
 ![Hosting](https://img.shields.io/badge/Hosting-GitHub%20Pages-blue)
 ![App Check](https://img.shields.io/badge/Security-App%20Check%20%2B%20reCAPTCHA-green)
